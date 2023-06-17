@@ -41,7 +41,7 @@ body {
 }
 
 .footer{
-  position: absolute;
+  position: relative;
   bottom: 0;
   width: 100%;
   background-color: black;
@@ -117,5 +117,41 @@ body {
     font-size: 2.5rem;
     font-weight:500;
     color: white;
+  }
+}
+
+.cards{
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  border-radius: 20px;
+  background-color: #F6F6F6;
+  width: 1240px;
+  margin: 10vh auto 0 auto;
+
+
+  .cards__individual{
+    height: 340px;
+    width: 340px;
+    border-radius: 20px;
+    margin: 36px;
+  }
+
+  .cards__cover{
+    object-fit: cover;
+    border-radius: 20px;
+    height: 100%;
+    width:100%;
+  }
+
+  .cards__title{
+    position: relative;
+    bottom:50px;
+    left: 15px;
+    width:30%;
+    font-size: 1rem;
+    color: #fff;
   }
 }

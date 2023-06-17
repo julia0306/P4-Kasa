@@ -1,8 +1,8 @@
 
 function Home() {
   return (
-    <div className="App">
-      Hello
+    <div className="Home">
+      Home
     </div>
   );
 }

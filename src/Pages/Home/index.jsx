@@ -1,8 +1,13 @@
+import image from "../../Assets/Banners/banner1.png"
+import Banner from "../../Components/Banner";
 
-function Home() {
+function Home(props) {
   return (
-    <div className="Home">
-      Home
+    <div>
+      <Banner 
+        className="banner"
+        text="Chez vous, partout et ailleurs" 
+        image={image}/>
     </div>
   );
 }

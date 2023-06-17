@@ -12,6 +12,7 @@ text-decoration: none;}
 
 
 body {
+  position: relative;
   min-height: 100%;
   margin:0;
   padding: 45px 0px 0px;
@@ -153,5 +154,55 @@ body {
     width:30%;
     font-size: 1rem;
     color: #fff;
+  }
+}
+
+.about{
+  min-height: 80vh;
+}
+
+
+
+.collapsible{
+  box-sizing: border-box;
+  width:1023px;
+  display:flex;
+  flex-direction: column;
+  margin: 2vh auto;
+
+
+  .collapsible__heading{
+    z-index: 100;
+    background-color: #FF6060;
+    font-size: 2rem;
+    font-weight: 300;
+    color: white;
+    width: 1000px;
+    height:52px;
+    padding:0 12.5px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .collapsible__icon{
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    margin:0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+  }
+
+  .collapsible__content{
+    position: relative;
+    top:-25px;
+    width:1000px;
+    background-color: $background-color;
+    margin: 0;
+    padding: 52px 12.5px 25px 12.5px; 
   }
 }

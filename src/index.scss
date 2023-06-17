@@ -1,13 +1,89 @@
-body {
+@font-face {
+  font-family: "Montserrat";
+  src: url("Assets/Fonts/Montserrat.ttf");
+}
+$text-color:#FF6060;
+$background-color:#F6F6F6;
+
+*{
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+padding: 0;
+text-decoration: none;}
+
+
+body {
+  min-height: 100%;
+  margin:0;
+  padding: 45px 0px 0px;
+  font-family: "Montserrat", sans-serif;
+  color: $text-color;
+  font-size: 18px; 
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.header{
+  width: 90vw;
+  height: 5vh;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .navbar{
+    display: flex;
+    gap:57px;
+  }
+
+  .navbar__links{
+    text-decoration: none !important;
+    color:$text-color;
+  }
+
+}
+
+.footer{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 3vh 0 1vh 0;
+  margin-top: 5vh;
+
+  .footer__logo{
+    color:aqua;
+    font-size: 15px;
+    margin-bottom: 1vh;
+  }
+}
+
+.error{
+  height:80vh;
+  margin: auto 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .error__title{
+    font-size: 16rem;
+    font-weight: 700;
+    margin: 0;
+  }
+
+  .error__info{
+    font-size: 2rem;
+    font-weight: 500;
+    margin:0
+  }
+
+  .error__link{
+    text-decoration: none;
+    color:#FF6060;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 5vh 0 1vh 0;
+    margin: 0 auto;
+    border-bottom: 2px solid $text-color;
+  }
 }

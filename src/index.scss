@@ -9,10 +9,7 @@ $background-color:#F6F6F6;
   margin: 0;
   padding: 0;
   text-decoration: none;}
-  
-html{
-  height: fit-content;
-}
+
 h2{
   font-size: 24px ;
 }
@@ -198,7 +195,8 @@ main{
 
 .collapsible{
   display:flex;
-  margin: 2vh auto;
+  margin: 2vh 0;
+  gap: 5%;
   
 
   .collapsible__heading{
@@ -249,12 +247,7 @@ main{
   }
 
   .collapsible__half{
-    width: 40%;
-  }
-
-  .collapsible__features{
-    display: flex;
-    flex-direction: row; 
+    width: 48%;
   }
 
   .collapsible__components{
@@ -276,6 +269,21 @@ main{
   border-radius: 20px;
   object-fit: cover;
   }
+
+  .carousel__arrows{
+    display: flex;
+    justify-content: space-between;
+    width: 98%;
+    margin: 0 auto;
+    position: relative;
+    top: -220px;
+  }
+}
+button{
+  border:none;
+  background: none;
+  color: white;
+  font-size: 36px;
 }
 
 .not-displayed{
@@ -287,6 +295,10 @@ main{
   width: 1240px;
   margin: 0 auto;
 
+  .properties__content{
+    display: flex;
+    justify-content: space-between;
+  }
   .properties__title{
     font-size: 36px
   }
@@ -294,4 +306,30 @@ main{
   .properties__subtitle{
     font-size: 24px
   }
+}
+
+.tag{
+  background-color: $text-color;
+  border-radius:10px;
+  width: 115px;
+  height: 25px;
+  color: white;
+  font-size: 14px;
+  text-align: center;
+  padding-top: 3px;
+}
+
+.tags__display{
+  display: flex; 
+  justify-content: flex-start;
+  gap: 24px;
+  
+}
+
+.rating{
+  color: #E3E3E3;
+  font-size: 24px;
+  display: flex;
+  gap: 5px;
+
 }

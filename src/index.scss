@@ -7,24 +7,37 @@ $background-color:#F6F6F6;
 
 *{
   margin: 0;
-padding: 0;
-text-decoration: none;}
-
-
+  padding: 0;
+  text-decoration: none;}
+  
+html{
+  height: fit-content;
+}
+h2{
+  font-size: 24px ;
+}
 body {
   position: relative;
-  min-height: 100%;
-  margin:0;
+  height: fit-content;
   padding: 45px 0px 0px;
+  margin-bottom: 0;
   font-family: "Montserrat", sans-serif;
   color: $text-color;
   font-size: 18px; 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow-x: hidden;
+}
+
+main{
+  margin: 5vh auto;
+  width: 1240px;
 }
 
 .header{
-  width: 90vw;
-  height: 5vh;
-  margin: auto;
+  width: 1240px;
+  margin: 2vh auto 5vh auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -37,14 +50,21 @@ body {
   .navbar__links{
     text-decoration: none !important;
     color:$text-color;
+    font-size: 24px;;
   }
 
 }
 
 .footer{
+  align-content: center;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
   bottom: 0;
-  width: 100%;
+  width: 100vw;
+  height: 200px;
   background-color: black;
   color: white;
   text-align: center;
@@ -53,6 +73,7 @@ body {
 
   .footer__logo{
     color:aqua;
+    width: 122px;
     font-size: 15px;
     margin-bottom: 1vh;
   }
@@ -93,7 +114,7 @@ body {
 .banner{
   height: 223px;
   width: 1240px;
-  margin: 10vh auto;
+  margin: 5vh auto;
   border-radius: 20px;
   background-color: #00000028;
 
@@ -130,7 +151,7 @@ body {
   border-radius: 20px;
   background-color: #F6F6F6;
   width: 1240px;
-  margin: 10vh auto 0 auto;
+  margin: 5vh auto 0 auto;
 
 
   .cards__individual{
@@ -143,9 +164,26 @@ body {
   .cards__cover{
     object-fit: cover;
     border-radius: 20px;
-    height: 100%;
+    height: 340px;
     width:100%;
   }
+
+  .cards__gradient{
+    position: relative;
+  
+    &::after{
+      content:'';
+      position: absolute;
+      top:0;
+      left:0;
+      height: 340px;
+      width: 340px;
+      border-radius: 20px;
+      background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6));
+    }
+  }
+
+
 
   .cards__title{
     position: relative;
@@ -157,29 +195,21 @@ body {
   }
 }
 
-.about{
-  min-height: 80vh;
-}
-
-
 
 .collapsible{
-  box-sizing: border-box;
-  width:1023px;
   display:flex;
-  flex-direction: column;
   margin: 2vh auto;
-
+  
 
   .collapsible__heading{
+    width: 96%;
     z-index: 100;
     background-color: #FF6060;
     font-size: 2rem;
     font-weight: 300;
     color: white;
-    width: 1000px;
     height:52px;
-    padding:0 12.5px;
+    padding:0 2%;
     border-radius: 10px;
     display: flex;
     justify-content: space-between;
@@ -197,12 +227,71 @@ body {
     outline: inherit;
   }
 
+  .rotate-left {
+    transform: rotate(-0.5turn);
+    transition: transform 0.4s ease-in-out;
+  }
+  .rotate-right {
+    transform: rotate(0turn);
+    transition: transform 0.4s ease-in-out;
+  }
+
+
   .collapsible__content{
     position: relative;
     top:-25px;
-    width:1000px;
     background-color: $background-color;
     margin: 0;
     padding: 52px 12.5px 25px 12.5px; 
+  }
+  .collapsible__full {
+    flex-direction: column;
+  }
+
+  .collapsible__half{
+    width: 40%;
+  }
+
+  .collapsible__features{
+    display: flex;
+    flex-direction: row; 
+  }
+
+  .collapsible__components{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+.carousel{
+  width:1240px;
+  margin: 5vh auto 0 auto;
+
+  
+  .carousel__image{
+  width: 100%;
+  height:415px;
+  align-self: center;
+  border-radius: 20px;
+  object-fit: cover;
+  }
+}
+
+.not-displayed{
+  display: none;
+}
+
+
+.properties{
+  width: 1240px;
+  margin: 0 auto;
+
+  .properties__title{
+    font-size: 36px
+  }
+
+  .properties__subtitle{
+    font-size: 24px
   }
 }

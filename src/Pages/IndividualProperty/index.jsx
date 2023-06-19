@@ -1,5 +1,5 @@
-// import Slideshow from "../../Components/Slideshow"
-// import testImage from "../../Assets/Test-picture.jpg"
+import { allProperties } from "../../Data/Properties";
+import { useParams } from 'react-router-dom'
 import Carousel from "../../Components/Carousel"
 import Collapsible from "../../Components/Collapse"
 import Rating from "../../Components/Rating"
@@ -7,26 +7,35 @@ import Tag from "../../Components/Tag"
 
 
 function IndividualProperty(){
+    const {id} = useParams();
+    const selectedProperty = allProperties.find(property => property.id === id);
+    const {title} = selectedProperty || {}
+    const {location} = selectedProperty || {}
+    const {tags} = selectedProperty || {}
+    const {cover} = selectedProperty || {}
+    const {description} = selectedProperty || {}
+    const {equipments} = selectedProperty || {}
+    const {host} = selectedProperty || {}
+        const {name} = host || {}
+        const {picture} = host || {}
     return (
         <section className="properties">
-            <Carousel/>
+            <Carousel
+                photo={cover}/>
             <div className="properties__content">
                 <div className="properties__info">
-                    <h1 className="properties__title">Title</h1>
-                    <h2 className="properties__subtitle">Subtitle</h2>
+                    <h1 className="properties__title">{title}</h1>
+                    <h2 className="properties__subtitle">{location}</h2>
                     <div className="tags__display">
-                        <Tag
-                            text="text1"/>
-                        <Tag
-                            text="text2"/>
-                        <Tag
-                            text="text3"/>
+                        {tags.map((tags, index) => (
+                            <Tag key={index} text={tags} />
+                        ))}
                     </div>
                 </div>
                 <div className="properties__host">
                     <div className="properties__host__info">
-                        Host name 
-                        Host picture
+                        <p>{name}</p>
+                        <img src={picture} alt="host profile picture" className="host__picture"/>
                     </div>
                     <div className="properties__host__rating">
                         <Rating/>
@@ -36,9 +45,10 @@ function IndividualProperty(){
             <div className="collapsible collapsible__features">
                 <Collapsible className="collapsible__half"
                     title="Description"
-                    content="try this"/>
+                    content={description}/>
                 <Collapsible className="collapsible__half"
-                    title="Équipements"/>
+                    title="Équipements"
+                    content={equipments}/>
             </div>
         </section>
     )

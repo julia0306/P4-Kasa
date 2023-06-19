@@ -1,12 +1,11 @@
-import testImage from "../../Assets/Test-picture.jpg"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons"
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons"
 
-function Carousel(){
+function Carousel(props){
     return (
         <div className="carousel">
-            <img src ={testImage} alt ="carousel" className="carousel__image"/>
+            <img src ={props.photo} alt ="carousel" className="carousel__image"/>
             <div className="carousel__arrows">
                 <button><FontAwesomeIcon icon={faChevronLeft}/></button>
                 <button><FontAwesomeIcon icon={faChevronRight}/></button>

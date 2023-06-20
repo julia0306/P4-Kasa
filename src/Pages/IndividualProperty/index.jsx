@@ -4,11 +4,15 @@ import Carousel from "../../Components/Carousel"
 import Collapsible from "../../Components/Collapse"
 import Rating from "../../Components/Rating"
 import Tag from "../../Components/Tag"
+import Error from "../Error";
 
 
 function IndividualProperty(){
     const {id} = useParams();
     const selectedProperty = allProperties.find(property => property.id === id);
+    if (!selectedProperty) {
+        return <Error/>
+    }
     const {title} = selectedProperty || {}
     const {location} = selectedProperty || {}
     const {tags} = selectedProperty || {}
@@ -46,25 +50,23 @@ function IndividualProperty(){
                     </div>
                 </div>
             </div>
-            <div className="collapsible">
-                <Collapsible className="collapsible__half"
-                    title="Description"
-                    content={description}/>
-                <Collapsible className="collapsible__half"
-                    title="Équipements"
-                    content={equipments}/>
+            <div className="collapsibles">
+                <div className="collapsible">
+                    <Collapsible className="collapsible__half"
+                        title="Description"
+                        content={description}/>
+                </div>
+                <div className="collapsible">
+                    <Collapsible className="collapsible__half"
+                        title="Équipements"
+                        content={equipments.map((equipment, index) => (
+                            <div key={index}>{equipment}</div>
+                        ))}
+                    />
+                </div>
             </div>
         </section>
     )
 }
 
 export default IndividualProperty
-
-// function IndividualProperty(){
-//     return (
-//         <Slideshow
-//             image={testImage}/>
-//     )
-// }
-
-// export default IndividualProperty

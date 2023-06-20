@@ -25,6 +25,7 @@ function Carousel(props){
                 <button onClick={goToPrevious}><FontAwesomeIcon icon={faChevronLeft}/></button>
                 <button onClick={goToNext}><FontAwesomeIcon icon={faChevronRight}/></button>
             </div>
+            <div className="carousel__navigation">{currentIndex +1}/{slides.length}</div>
         </div>
     )
 }

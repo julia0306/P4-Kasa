@@ -191,11 +191,15 @@ main{
   }
 }
 
+.collapsibles{
+  display: flex;
+  justify-content: space-between;
+  gap: 2vw;
+}
 
 .collapsible{
-  display:flex;
+  width: 100%;
   margin: 2vh 0;
-  gap: 5%;
   
 
   .collapsible__heading{
@@ -245,9 +249,7 @@ main{
   }
 
   .collapsible__half{
-    width: 48%;
-    height: 170px;
-    margin-bottom: 30px;
+    width: 100%;
   }
 
   .collapsible__components{
@@ -277,6 +279,12 @@ main{
     position: relative;
     top: -240px;
     height: 0;
+  }
+  .carousel__navigation{
+    color: white;
+    text-align: center;
+    position: relative;
+    top: -50px;
   }
 
 button{
@@ -308,7 +316,7 @@ button :hover{
   .properties__content{
     display: flex;
     justify-content: space-between;
-    height: 200px;
+    height: 180px;
   }
   .properties__title{
     font-size: 36px;
@@ -334,7 +342,7 @@ button :hover{
   font-size: 14px;
   text-align: center;
   padding: 6px 12px 0 12px;
-  margin: 2vh 0 0 0;
+  margin: 3vh 0 0 0;
 }
 
 .tags__display{
@@ -361,6 +369,7 @@ button :hover{
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  gap: 3vh;
   height: 100%;
 }
 .properties__host__picture {

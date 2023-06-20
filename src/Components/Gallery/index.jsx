@@ -5,7 +5,7 @@ import { allProperties } from "../../Data/Properties";
 
 function Gallery() {
     return (
-        <div className="cards">
+        <div className="gallery">
             {allProperties.map((property) => (
                 <Link  key={property.id} to={`/properties/${property.id}`}>
                     <Card key={property.id}

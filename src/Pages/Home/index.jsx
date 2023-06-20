@@ -4,13 +4,13 @@ import Gallery from "../../Components/Gallery";
 
 function Home() {
   return (
-    <div>
+    <main>
       <Banner 
         className="banner"
         text="Chez vous, partout et ailleurs" 
         image={image}/>
       <Gallery/>
-    </div>
+    </main>
   );
 }
 

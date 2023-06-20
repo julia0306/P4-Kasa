@@ -1,11 +1,24 @@
 import { Link } from 'react-router-dom'
-import logo from '../../Assets/Logos/logo_desktop.png'
+import desktopLogo from '../../Assets/Logos/logo_desktop.png'
+import mobileLogo from "../../Assets/Logos/logo_mobile.png"
  
 function Header() {
     return (
         <nav className="header">
         <Link to="/">
-            <img src={logo} alt='Kasa' className='kasa-logo' />
+            <h1>
+                <img srcSet={`${mobileLogo} 146w,
+                            ${desktopLogo} 211w`}
+                    src={desktopLogo}
+                    className='kasa-logo'
+                    alt="kasa logo"
+                    title="kasa logo"
+                    sizes="(max-width: 211px) 100vw, 211px,
+                            (max-width: 146) 100vw, 146px"
+                    width="211" 
+                    height="68"
+                />
+            </h1>
         </Link>
             
             <div className="navbar">

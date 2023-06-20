@@ -5,7 +5,7 @@ function Card({cover, title}) {
                 <div className="cards__gradient">
                 <img src={cover} alt='property card' className="cards__cover" />
                 </div>
-                <span className='cards__title'>{title}</span>
+                <div className='cards__title'>{title}</div>
             </div>
     )
 }

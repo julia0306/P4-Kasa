@@ -16,24 +16,22 @@ function IndividualProperty(){
     const {title} = selectedProperty || {}
     const {location} = selectedProperty || {}
     const {tags} = selectedProperty || {}
-    // const {cover} = selectedProperty || {}
     const {description} = selectedProperty || {}
     const {equipments} = selectedProperty || {}
     const {host} = selectedProperty || {}
         const {name} = host || {}
         const {picture} = host || {}
-
     const {pictures} = selectedProperty || {}
 
     return (
-        <section className="properties">
+        <main className="properties">
             <Carousel 
                 pictures={pictures}
             />
             <div className="properties__content">
                 <div className="properties__info">
-                    <h1 className="properties__title">{title}</h1>
-                    <h2 className="properties__subtitle">{location}</h2>
+                    <h2 className="properties__title">{title}</h2>
+                    <h3 className="properties__subtitle">{location}</h3>
                     <div className="tags__display">
                         {tags.map((tags, index) => (
                             <Tag key={index} text={tags} />
@@ -65,7 +63,7 @@ function IndividualProperty(){
                     />
                 </div>
             </div>
-        </section>
+        </main>
     )
 }
 

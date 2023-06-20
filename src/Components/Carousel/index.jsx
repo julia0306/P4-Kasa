@@ -5,13 +5,25 @@ import { useState } from "react"
 
 
 function Carousel(props){
+    const slides = props.pictures || [];
     const [currentIndex, setCurrentIndex] = useState (0);
+    const goToPrevious =() =>{
+        // Je vérifie si je suis déjà sur la slide 1
+        const isFirstSlide = currentIndex === 0;
+        const newIndex = isFirstSlide ? slides.length -1 : currentIndex -1;
+        setCurrentIndex(newIndex)
+    }
+    const goToNext = () => {
+        const isLastSlide = currentIndex === slides.length -1;
+        const newIndex = isLastSlide ? 0 : currentIndex +1;
+        setCurrentIndex(newIndex)
+    }
     return (
         <div className="carousel">
-            <img className="carousel__image" src = {props.pictures[currentIndex]} alt="carousel"/>
+            <img className="carousel__image" src = {slides[currentIndex]} alt="carousel"/>
             <div className="carousel__arrows">
-                <button><FontAwesomeIcon icon={faChevronLeft}/></button>
-                <button><FontAwesomeIcon icon={faChevronRight}/></button>
+                <button onClick={goToPrevious}><FontAwesomeIcon icon={faChevronLeft}/></button>
+                <button onClick={goToNext}><FontAwesomeIcon icon={faChevronRight}/></button>
             </div>
         </div>
     )

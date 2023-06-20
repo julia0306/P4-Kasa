@@ -25,6 +25,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   overflow-x: hidden;
+  min-height: 100vh;
 }
 
 main{
@@ -59,17 +60,15 @@ main{
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  bottom: 0;
   width: 100vw;
-  height: 200px;
+  height: 160px;
   background-color: black;
   color: white;
   text-align: center;
   padding: 3vh 0 1vh 0;
-  margin-top: 5vh;
+  margin-top:5vh;
 
   .footer__logo{
-    color:aqua;
     width: 122px;
     font-size: 15px;
     margin-bottom: 1vh;
@@ -77,7 +76,7 @@ main{
 }
 
 .error{
-  height:80vh;
+  height:60vh;
   margin: auto 0;
   text-align: center;
   display: flex;
@@ -272,20 +271,30 @@ main{
     width: 98%;
     margin: 0 auto;
     position: relative;
-    top: -220px;
+    top: -240px;
+  
   }
 
 button{
   border:none;
   background: none;
   color: white;
-  font-size: 36px;
+  font-size: 60px;
 }
 
+button :hover{
+  cursor: pointer
+}
 .not-displayed{
   display: none;
 }
 
+//  Ajouté pour garder le footer en place 
+.about__collapsibles{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
 
 .properties{
   width: 1240px;
@@ -300,19 +309,21 @@ button{
   }
 
   .properties__subtitle{
-    font-size: 24px
+    font-size: 24px;
+    margin: 1vh 0;
   }
 }
 
 .tag{
   background-color: $text-color;
   border-radius:10px;
-  width: 115px;
+  width:fit-content;
   height: 25px;
   color: white;
   font-size: 14px;
   text-align: center;
-  padding-top: 3px;
+  padding: 6px 12px 0 12px;
+  margin: 2vh 0
 }
 
 .tags__display{

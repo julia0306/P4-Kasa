@@ -38,15 +38,15 @@ function IndividualProperty(){
                 </div>
                 <div className="properties__host">
                     <div className="properties__host__info">
-                        <p>{name}</p>
-                        <img src={picture} alt="host profile" className="host__picture"/>
+                        <p className="properties__host__name">{name}</p>
+                        <img src={picture} alt="host profile" className="properties__host__picture"/>
                     </div>
                     <div className="properties__host__rating">
                         <Rating/>
                     </div>
                 </div>
             </div>
-            <div className="collapsible collapsible__features">
+            <div className="collapsible">
                 <Collapsible className="collapsible__half"
                     title="Description"
                     content={description}/>

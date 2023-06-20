@@ -6,16 +6,19 @@ $text-color:#FF6060;
 $background-color:#F6F6F6;
 
 *{
-  margin: 0;
   padding: 0;
-  text-decoration: none;}
+  text-decoration: none;
+  margin: auto 0}
+  
 
 h2{
   font-size: 24px ;
+  margin: 0;
 }
+
 body {
   position: relative;
-  height: fit-content;
+  min-height:100vh;
   padding: 45px 0px 0px;
   margin-bottom: 0;
   font-family: "Montserrat", sans-serif;
@@ -55,7 +58,6 @@ main{
 
 .footer{
   align-content: center;
-  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -179,8 +181,6 @@ main{
     }
   }
 
-
-
   .cards__title{
     position: relative;
     bottom:50px;
@@ -233,12 +233,11 @@ main{
     transition: transform 0.4s ease-in-out;
   }
 
-
   .collapsible__content{
     position: relative;
     top:-25px;
     background-color: $background-color;
-    margin: 0;
+    margin: 0 0 0 0 ;
     padding: 52px 12.5px 25px 12.5px; 
   }
   .collapsible__full {
@@ -247,6 +246,8 @@ main{
 
   .collapsible__half{
     width: 48%;
+    height: 170px;
+    margin-bottom: 30px;
   }
 
   .collapsible__components{
@@ -256,6 +257,9 @@ main{
   }
 }
 
+.carousel{
+  margin-bottom: 1vh;
+}
 
 .carousel__image{
   width: 1240px;
@@ -272,7 +276,7 @@ main{
     margin: 0 auto;
     position: relative;
     top: -240px;
-  
+    height: 0;
   }
 
 button{
@@ -280,6 +284,7 @@ button{
   background: none;
   color: white;
   font-size: 60px;
+  
 }
 
 button :hover{
@@ -303,15 +308,21 @@ button :hover{
   .properties__content{
     display: flex;
     justify-content: space-between;
+    height: 200px;
   }
   .properties__title{
-    font-size: 36px
+    font-size: 36px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
   }
 
   .properties__subtitle{
     font-size: 24px;
-    margin: 1vh 0;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
   }
+
+
 }
 
 .tag{
@@ -323,7 +334,7 @@ button :hover{
   font-size: 14px;
   text-align: center;
   padding: 6px 12px 0 12px;
-  margin: 2vh 0
+  margin: 2vh 0 0 0;
 }
 
 .tags__display{
@@ -337,6 +348,40 @@ button :hover{
   color: #E3E3E3;
   font-size: 24px;
   display: flex;
-  gap: 5px;
+  justify-content: space-between;
+  width: 190px;
+  margin: 0 0 40% 0
+}
 
+.properties__info{
+  height: 100%;
+  justify-content: space-between;
+}
+.properties__host{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+}
+.properties__host__picture {
+  border-radius:50%;
+  margin: 0 0 0 1vw;
+  height: 64px;
+  width: 64px;
+}
+
+.properties__host__info{
+  margin: 0;
+  padding: 0;
+  width: 196px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.properties__host__name{
+  display: flex;
+  flex-wrap: wrap;
+  text-align: end;
+  font-size: 18px;
 }

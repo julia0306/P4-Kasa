@@ -257,20 +257,16 @@ main{
   }
 }
 
-.carousel{
-  width:1240px;
-  margin: 5vh auto 0 auto;
 
-  
-  .carousel__image{
-  width: 100%;
+.carousel__image{
+  width: 1240px;
   height:415px;
   align-self: center;
   border-radius: 20px;
   object-fit: cover;
   }
 
-  .carousel__arrows{
+.carousel__arrows{
     display: flex;
     justify-content: space-between;
     width: 98%;
@@ -278,7 +274,7 @@ main{
     position: relative;
     top: -220px;
   }
-}
+
 button{
   border:none;
   background: none;

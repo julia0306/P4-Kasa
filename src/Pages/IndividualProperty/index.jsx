@@ -12,16 +12,20 @@ function IndividualProperty(){
     const {title} = selectedProperty || {}
     const {location} = selectedProperty || {}
     const {tags} = selectedProperty || {}
-    const {cover} = selectedProperty || {}
+    // const {cover} = selectedProperty || {}
     const {description} = selectedProperty || {}
     const {equipments} = selectedProperty || {}
     const {host} = selectedProperty || {}
         const {name} = host || {}
         const {picture} = host || {}
+
+    const {pictures} = selectedProperty || {}
+
     return (
         <section className="properties">
-            <Carousel
-                photo={cover}/>
+            <Carousel 
+                pictures={pictures}
+            />
             <div className="properties__content">
                 <div className="properties__info">
                     <h1 className="properties__title">{title}</h1>
@@ -35,7 +39,7 @@ function IndividualProperty(){
                 <div className="properties__host">
                     <div className="properties__host__info">
                         <p>{name}</p>
-                        <img src={picture} alt="host profile picture" className="host__picture"/>
+                        <img src={picture} alt="host profile" className="host__picture"/>
                     </div>
                     <div className="properties__host__rating">
                         <Rating/>

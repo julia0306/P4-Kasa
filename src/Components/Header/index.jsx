@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import desktopLogo from '../../Assets/Logos/logo_desktop.png'
 import mobileLogo from "../../Assets/Logos/logo_mobile.png"
  
@@ -22,8 +22,16 @@ function Header() {
         </Link>
             
             <div className="navbar">
-                <Link className= "navbar__links" to="/">Accueil</Link>
-                <Link className= "navbar__links" to="/about">A propos</Link>
+                <NavLink
+                    to="/"
+                    className={({isActive}) => isActive ? 'navbar__links navbar__links__active' : 'navbar__links'}>
+                        Accueil
+                </NavLink>
+                <NavLink
+                    to="/about" 
+                    className={({isActive}) => isActive ? 'navbar__links navbar__links__active' : 'navbar__links'}>
+                        A propos
+                </NavLink>
             </div>
         </nav>
     )

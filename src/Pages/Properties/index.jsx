@@ -7,7 +7,7 @@ import Tag from "../../Components/Tag"
 import Error from "../Error";
 
 
-function IndividualProperty(){
+function Properties(){
     const {id} = useParams();
     const selectedProperty = allProperties.find(property => property.id === id);
     if (!selectedProperty) {
@@ -32,7 +32,7 @@ function IndividualProperty(){
                 <div className="properties__info">
                     <h2 className="properties__title">{title}</h2>
                     <h3 className="properties__subtitle">{location}</h3>
-                    <div className="tags__display">
+                    <div className="properties__tags">
                         {tags.map((tags, index) => (
                             <Tag key={index} text={tags} />
                         ))}
@@ -50,12 +50,12 @@ function IndividualProperty(){
             </div>
             <div className="collapsibles">
                 <div className="collapsible">
-                    <Collapsible className="collapsible__half"
+                    <Collapsible className="collapsible__high"
                         title="Description"
                         content={description}/>
                 </div>
                 <div className="collapsible">
-                    <Collapsible className="collapsible__half"
+                    <Collapsible className="collapsible__high"
                         title="Équipements"
                         content={equipments.map((equipment, index) => (
                             <div key={index}>{equipment}</div>
@@ -67,4 +67,4 @@ function IndividualProperty(){
     )
 }
 
-export default IndividualProperty
+export default Properties

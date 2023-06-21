@@ -1,4 +1,5 @@
-import icon from "../../Assets/Icons/chevron-up.png"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faChevronUp } from "@fortawesome/free-solid-svg-icons"
 import { useState } from 'react'
 
 const Collapsible = (props) => {
@@ -15,22 +16,13 @@ const Collapsible = (props) => {
       <div className="collapsible__components">
         <div className="collapsible__heading">
           <h2 className="font-weight-bold">{props.title}</h2>
-          <button className="collapsible__icon" onClick={handleCollapsibleToggle}><img src={icon} alt="icon" className={`${isRotated ? 'rotate-left' : 'rotate-right'}`}/></button>
+          <button className="collapsible__icon" onClick={handleCollapsibleToggle}><FontAwesomeIcon icon={faChevronUp} className={`${isRotated ? 'rotate-left' : 'rotate-right'}`}/></button>
         </div>
-        <div className={`collapsible__content ${!isOpen ? 'not-displayed' : ''}`}>{props.content}</div>
+        <div className={`collapsible__content ${!isOpen ? 'not-displayed' : 'displayed'}`}>{props.content}</div>
         </div>
       </div>
     )
     }
-//   ) : (
-//     <div className={`collapsible ${!isOpen ? '' : 'open'}`}>
-//       <div className="collapsible__heading">
-//         <h6 className="font-weight-bold">{props.title}</h6>
-//         <button className="collapsible__icon" onClick={handleCollapsibleToggle}><img src={icon} alt="icon" className={`${isRotated ? '' : 'rotate-right'}`}/></button>
-//       </div>
-//     </div>
-//   )
-// }
 
 export default Collapsible
 

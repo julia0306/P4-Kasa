@@ -1,6 +1,6 @@
 
-import { Link } from "react-router-dom";
 import Card from "../Card";
+import { Link } from "react-router-dom";
 import { allProperties } from "../../Data/Properties";
 
 function Gallery() {

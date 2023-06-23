@@ -696,8 +696,14 @@ main{
     margin: 0 auto;
     text-align: center;
 
-    @media all and (max-width: 920){
+    @media all and (max-width: 920px){
       font-size: 11rem;
+    }
+    @media all and (max-width: 600px){
+      font-size: 8rem;
+    }
+    @media all and (max-width: 375px){
+      font-size: 5rem;
     }
   }
 
@@ -709,6 +715,9 @@ main{
     @media all and (max-width : 920px){
       font-size: 1.6rem
       }
+    @media all and (max-width : 375px){
+      font-size: 1.3rem
+      }
   }
 
   .error__link{
@@ -719,6 +728,10 @@ main{
     padding: 5vh 0 1vh 0;
     margin: 0 auto 5vh auto;
     border-bottom: 2px solid $salmon-pink;
+
+    @media all and (max-width : 375px){
+      padding-bottom:0.3vh
+    }
   }
 }
 

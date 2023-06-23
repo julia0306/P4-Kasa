@@ -6,19 +6,17 @@ function Header() {
     return (
         <nav className="header">
         <Link to="/">
-            <h1>
                 <img srcSet={`${mobileLogo} 146w,
                             ${desktopLogo} 211w`}
                     src={desktopLogo}
                     className='kasa-logo'
                     alt="kasa logo"
                     title="kasa logo"
-                    sizes="(max-width: 211px) 100vw, 211px,
-                            (max-width: 146) 100vw, 146px"
+                    sizes="(min-width: 615px), 211w,
+                            (max-width: 615px), 146w"
                     width="211" 
                     height="68"
                 />
-            </h1>
         </Link>
             
             <div className="navbar">

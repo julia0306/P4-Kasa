@@ -1,6 +1,3 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faChevronRight } from "@fortawesome/free-solid-svg-icons"
-import { faChevronLeft } from "@fortawesome/free-solid-svg-icons"
 import { useState } from "react"
 
 
@@ -21,8 +18,8 @@ function Carousel(props){
         <div className="carousel">
             <img className="carousel__image" src = {slides[currentIndex]} alt="carousel"/>
             <div className="carousel__arrows">
-                <button onClick={goToPrevious} className={` ${slides.length === 1 ? 'not-displayed' : ''}`}><FontAwesomeIcon icon={faChevronLeft}/></button>
-                <button onClick={goToNext} className={` ${slides.length === 1 ? 'not-displayed' : ''}`}><FontAwesomeIcon icon={faChevronRight}/></button>
+                <button onClick={goToPrevious} className={` ${slides.length === 1 ? 'not-displayed' : ''}`}><i className="fa-solid fa-chevron-left" /></button>
+                <button onClick={goToNext} className={` ${slides.length === 1 ? 'not-displayed' : ''}`}><i className="fa-solid fa-chevron-right" /></button>
             </div>
             <div className={`carousel__navigation ${slides.length === 1 ? 'not-displayed' : ''}`}> {currentIndex + 1}/{slides.length}</div>
         </div>

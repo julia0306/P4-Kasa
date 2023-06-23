@@ -1,4 +1,4 @@
-import { allProperties } from "../../Data/Properties";
+import allProperties from "../../Data/Properties.json";
 import { useParams } from 'react-router-dom'
 import Carousel from "../../Components/Carousel"
 import Collapsible from "../../Components/Collapse"
@@ -10,6 +10,8 @@ import Error from "../Error";
 function Properties(){
     const {id} = useParams();
     const selectedProperty = allProperties.find(property => property.id === id);
+
+    // Réécrire ça avace useNavigate ()
     if (!selectedProperty) {
         return <Error/>
     }
@@ -22,6 +24,7 @@ function Properties(){
         const {name} = host || {}
         const {picture} = host || {}
     const {pictures} = selectedProperty || {}
+    const {rating} = selectedProperty || {}
 
     return (
         <main className="properties">
@@ -30,8 +33,8 @@ function Properties(){
             />
             <div className="properties__content">
                 <div className="properties__info">
-                    <h2 className="properties__title">{title}</h2>
-                    <h3 className="properties__subtitle">{location}</h3>
+                    <h1 className="properties__title">{title}</h1>
+                    <h2 className="properties__subtitle">{location}</h2>
                     <div className="properties__tags">
                         {tags.map((tags, index) => (
                             <Tag key={index} text={tags} />
@@ -44,7 +47,8 @@ function Properties(){
                         <img src={picture} alt="host profile" className="properties__host__picture"/>
                     </div>
                     <div className="properties__host__rating">
-                        <Rating/>
+                        <Rating
+                            numberOfStars={rating}/>
                     </div>
                 </div>
             </div>

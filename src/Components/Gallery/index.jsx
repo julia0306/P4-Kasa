@@ -1,7 +1,7 @@
 
 import Card from "../Card";
 import { Link } from "react-router-dom";
-import { allProperties } from "../../Data/Properties";
+import allProperties from "../../Data/Properties.json";
 
 function Gallery() {
     return (

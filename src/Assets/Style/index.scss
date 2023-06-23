@@ -5,10 +5,43 @@
   src: url("../Fonts/Montserrat.ttf");
 }
 
-
 // COLORS NEEDED FOR THE PROJECT
 $salmon-pink:#FF6060;
 $light-grey:#F6F6F6;
+
+
+// MIXINS TO BE REUSED IN THE PROJECT
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-column-center{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@mixin flex-row-center{
+  display: flex;
+  align-items: center;
+}
+
+@mixin pinkBG_whiteFont{
+  background-color: $salmon-pink;
+  color: white
+}
+
+@mixin border-radius10{
+  border-radius: 10px;
+}
+
+@mixin card-properties1{
+  height: calc(120px + 9vw);
+  width :calc(120px + 9vw);
+  border-radius: 10px;
+}
 
 // MAIN SETTINGS
 *{
@@ -16,30 +49,41 @@ $light-grey:#F6F6F6;
   margin: 0;
   text-decoration: none;}
   
+.active{
+  color: $salmon-pink;}
 
-  body { 
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-family: "Montserrat", sans-serif;
-    font-size: 16px;
-    font-weight: 500;
-    padding: 45px 0px 0px 0px;
-    color: $salmon-pink;
-    overflow-x: hidden;
-  }
+body { 
+  position: relative;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 32px 0px 130px 0px;
+  color: $salmon-pink;
+  overflow-x: hidden;
+
+}
 
 h2{
-  font-size: 1.5rem;
-  margin: 0;
+  font-size: 1.3rem
 }
 
 
 main{
-  margin: 5vh auto;
-  width: 90%;
-  max-width: 1300px;
+  margin: 2% 10%;
+  width: 80%;
+  padding-bottom: 120px;
+  align-self: center;
+  min-width: 275px;
+
+  @media all and (max-width: 920px){
+    width:90%;
+    margin: 2% 5%;
+  }
+  
+  @media all and (max-width: 375px){
+    width:95%;
+    margin: 2% 2.5%;
+  }
 }
 
 .not-displayed{
@@ -51,13 +95,31 @@ main{
     // Header
 
 .header{
-  display: flex;
-  align-items: center;
+  @include flex-row-center();
   justify-content: space-between;
-  width: 90%;
-  max-width: 1300px;
+  width: 80%;
   margin: 0 auto;
- 
+  min-width: 275px;
+
+  @media all and (max-width: 920px){
+    width:90%;
+    margin: 2% 5%;
+  }
+  
+  @media all and (max-width: 375px){
+    width:95%;
+    margin: 2% 2.5%;
+  }
+  
+  .kasa-logo{
+      width: 211px;
+      height: 68px;
+
+      @media all and (max-width: 920px){
+          width: 146px;
+          height: 47px;
+        }
+      }
 
   .navbar{
     display: flex;
@@ -67,99 +129,155 @@ main{
   .navbar__links, .navbar__links__active {
     color:$salmon-pink;
     font-size: 1.5rem;
+
+    @media all and (max-width: 600px){
+      font-size: 1rem
+    }
+    @media all and (max-width: 375px){
+      font-size: 0.75rem;
+    }
   }
 
   .navbar__links__active{
-    padding-bottom: 0.2vh;
+    padding-bottom: 0.7vh;
     border-bottom: 2px solid $salmon-pink;
   }
 
 }
 
+    // Banner
+
+.banner{
+  @include border-radius10();
+  height: 25vh;
+  width: 100%;
+  margin: 5vh auto;
+  background-color: #00000028;
+
+  @media all and (max-width: 920px) {
+    height: 15vh;    
+  }
+
+
+
+  .banner__image{
+    @include border-radius10();
+    z-index: 10;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    mix-blend-mode:color-dodge;
+    opacity: 1.7; 
+  }
+
+  .banner__title{
+    z-index: 100;
+    position: relative;
+    text-align: center;
+    bottom: 70%;
+    font-size: 2.5rem;
+    font-weight:500;
+    color: white;
+
+      @media all and (max-width: 1051px) {
+        font-size: 1.9rem;
+        bottom: 70%;
+        text-align: center;
+      }
+      @media all and (max-width: 600px) {
+        font-size: 1.9rem;
+        bottom: 70%;
+        text-align: center;
+      }
+      @media all and (max-width: 375px) {
+        font-size: 1.6rem;
+      }
+  }
+}
+    
     // Footer
 
 .footer{
-  position: relative;
+  @include flex-column-center();
+  position: absolute;
   bottom: 0;
   left:0;
-  display: flex;
-  flex-direction: column;
   justify-content: space-around;
-  align-items: center;
   width: 100vw;
+  height:120px;
   background-color: black;
   color: white;
-  text-align: center;
   padding: 5vh 0 3vh 0;
-  margin: 5vh 0 0 0;
+
+  @media all and (max-width:920px){
+    justify-content: center;
+    margin-top:0;}
 
   .footer__logo{
     margin-bottom: 2vh;
     width: 122px;
     height: 40px;
   }
-}
 
+  .footer__text{
+    font-size: 1.125rem;
 
-    // Banner
-
-.banner{
-  height: 223px;
-  width: 100%;
-  margin: 5vh auto;
-  border-radius: 20px;
-  background-color: #00000028;
-
-  .banner__image{
-    z-index: 10;
-    border-radius: 20px;
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-    mix-blend-mode: darken;
-    opacity: 1.5;
-    filter:grayscale(0.8);
-    filter: saturate(1.2);
+    @media all and (max-width:920px){
+      font-size: 1rem;
+      width: 40%;
+      text-align: center;
+    }
     
-  }
-
-  .banner__slogan{
-    z-index: 100;
-    position: relative;
-    text-align: center;
-    bottom: 60%;
-    font-size: 2.5rem;
-    font-weight:500;
-    color: white;
+    @media all and (max-width:375px){
+        font-size: 0.75rem
+    }
   }
 }
+
 
     //Gallery
-
 .gallery{
+  @include flex-row-center();
   position: relative;
-  display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
   justify-content:center;
   border-radius: 20px;
   background-color: #F6F6F6;
   width: 100%;
-  margin: 5vh auto;
+  margin: 2vh auto;
 
+  @media all and (max-width: 920px){
+    @include flex-column();
+    gap: 4vh;
+    background-color: white;;
+  }
+
+  a{
+    display: flex;
+  }
 
   .cards__individual{
-    height: 350px;
-    width: 350px;
-    border-radius: 20px;
-    margin: 15px 1.5vw
+    @include card-properties1();
+    margin: 1.5vh 0.9vw;
+
+    @media all and (max-width: 920px) {
+      width:88vw;
+      height: 30vh; 
+      margin: 0;     
+    }
+
+    @media all and (min-width: 600px){
+      margin: 1.5vh 1.5vw
+    }
   }
 
   .cards__cover{
+    @include card-properties1();
     object-fit: cover;
-    border-radius: 20px;
-    height: 350px;
-    width:100%;
+    @media all and (max-width: 920px) {
+      width:100%;
+      height: 30vh
+    }
   }
 
   .cards__gradient{
@@ -167,23 +285,38 @@ main{
   
     &::after{
       content:'';
+      @include card-properties1();
       position: absolute;
       top:0;
       left:0;
-      height: 350px;
-      width: 350px;
-      border-radius: 20px;
-      background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6));
+      background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4));
+      
+      @media all and (max-width: 920px) {
+        width:100%;
+        height: 30vh;
+      }
     }
   }
 
   .cards__title{
     position: relative;
-    bottom:57px;
-    left: 15px;
-    width:90%;
-    font-size: 1.125rem;
+    bottom:65px;
+    left: 10px;
+    width:92%;
+    font-size: 1rem;
     color: #fff;
+
+    @media all and (max-width: 1124px){
+      font-size: 1.1rem;
+    }
+
+    @media all and (max-width: 1100px){
+      font-size: 0.9rem;
+    }
+
+    @media all and (max-width: 920px){
+      font-size: 1.5rem;
+    }
   }
 }
 
@@ -193,7 +326,7 @@ main{
     .collapsibles{
       display: flex;
       justify-content: space-between;
-      gap: 2.5vw;
+      gap: 16px;
       margin: 5vh 0 10vh 0; 
     }
     
@@ -201,15 +334,12 @@ main{
       width: 100%;
       margin: 2vh 0;    
       .collapsible__heading{
-        display: flex;
+        @include flex-row-center();
+        @include pinkBG_whiteFont();
         justify-content: space-between;
-        align-items: center;
         width: 96%;
         z-index: 100;
-        background-color: #FF6060;
-        font-size: 2rem;
         font-weight: 300;
-        color: white;
         height:52px;
         padding:0 2%;
         border-radius: 10px;
@@ -240,26 +370,21 @@ main{
         top:-25px;
         background-color: $light-grey;
         margin: 0;
-        padding: 52px 12.5px 25px 12.5px; 
-        font-size: 1.1rem;
-        height:100%;
+        padding: 35px 12.5px 25px 12.5px; 
       }
       .collapsible__full {
-        flex-direction: column;
+        @include flex-column();
       }
     
       .collapsible__components{
-        display: flex;
-        flex-direction: column;
+        @include flex-column();
         width: 100%;
       }
     
     .collapsible__high .displayed{
-      height:110px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-around;
-      font-size: 1.2rem;
+      @include flex-column;
+      font-size: 1rem;
+      height: 70px;
     }
     
     // .collapsible__full .displayed{
@@ -315,17 +440,32 @@ main{
     // Tag
 
 .tag{
+  @include pinkBG_whiteFont();
   display: flex; 
+  flex-wrap: wrap;
   align-items: center;
-  background-color: $salmon-pink;
   border-radius:10px;
   width:fit-content;
-  color: white;
   font-size: 0.9rem;
   text-align: center;
   height: 25px;
-  padding: 2px 8px;;
+  padding: 2px 8px;
   margin: 3vh 0 0 0;
+
+  @media all and (max-width: 600px){
+    font-size: 0.7rem;
+    height:12px;
+    padding: 4px 6px 6px 6px;
+    border-radius: 6px;
+    margin:0;
+  }
+
+  @media all and (max-width: 375px){
+      font-size: 0.6rem;
+      height:8px;
+      padding: 4px 6px 6px 6px;
+      border-radius: 6px;
+    }
 }
 
 
@@ -335,8 +475,12 @@ main{
   color: #E3E3E3;
   font-size: 1.5rem;
   display: flex;
-  justify-content: space-between;
-  width: 190px;
+  justify-content: flex-end;
+
+  @media all and (max-width:600px){
+    font-size: 1.125rem;
+    justify-content: flex-start;
+  }
 }
 
 
@@ -380,9 +524,8 @@ main{
     // About
 
 .about__collapsibles{
+  @include flex-column();
   min-height:37vh;
-  display: flex;
-  flex-direction: column;
   justify-content: space-between;
 }
 
@@ -396,12 +539,12 @@ main{
     justify-content: space-between;
   }
   .properties__title{
-    font-size: 36px;
+    font-size: 2.1rem;
     font-weight: 500;
   }
 
   .properties__subtitle{
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: 500;
   }
 
@@ -412,12 +555,12 @@ main{
   }
 
   .properties__info{
-    height: 100%;
+    @include flex-column();
     justify-content: space-between;
+    gap: 8px;
   }
   .properties__host{
-    display: flex;
-    flex-direction: column;
+    @include flex-column();
     justify-content: flex-start;
     gap: 3vh;
     height: 100%;
@@ -430,10 +573,9 @@ main{
     object-fit: cover;
   }
   
-  .properties__host__info{  
-    display: flex;
+  .properties__host__info{
+    @include flex-row-center();
     justify-content: flex-end;
-    align-items: center;
     margin: 0;
     padding: 0;
     width: 196px;
@@ -451,13 +593,20 @@ main{
 
 // MEDIA QUERIES
 
+
+@media all and (min-width: 1300px){
+  header, main {
+    width: 80%;
+    margin: 0 10%
+  };
+
+}
     // 1300px
 
 @media all and (max-width: 1300px) {
   .carousel{
     .carousel__image{
       height: 375px;
-      width: 100%;
     }
 
     button{
@@ -473,40 +622,17 @@ main{
     }
   }
 
-  .gallery{
-    .cards__individual{
-      height: calc(200px + 8vw);
-      width: calc(200px + 8vw);
-      margin: 1.5vh 1.5vw
-    }
-
-    .cards__cover{
-      height: calc(200px + 8vw);
-      width:100%;
-    }
-
-    .cards__gradient{  
-      &::after{
-        height: calc(200px + 8vw);
-        width: calc(200px + 8vw);
-      }
-    }
-
+    .collapsible{
     .collapsible__high .displayed{
-      height: 100px;
       font-size: 1rem;
-  }
+    }
   }
 }
 
       // 1051 px
 
 @media all and (max-width: 1051px) {
-  .banner__slogan{
-    font-size: 1.9rem;
-    bottom: 70%;
-    text-align: center;
-  }
+
   .carousel{
     margin: 0;
 
@@ -520,44 +646,14 @@ main{
     }
   }
 
-  
-  .gallery{
-      .cards__individual{
-        height: calc(200px + 7vw);
-        width: calc(200px + 7vw);
-        margin: 1.5vh 0.5vw
-      }
-    
-      .cards__cover{
-        height: calc(200px + 7vw);
-        width:100%;
-      }
-    
-      .cards__gradient{  
-        &::after{
-          height: calc(200px + 7vw);
-          width: calc(200px + 7vw);
-        }
-      }
-  }
 
-  .collapsible__high .displayed{
-    height: 100px;
-    font-size: 1rem;
 }
-}
+
 
     // 920px
 
 @media all and (max-width: 920px) {
-  .banner{
-    height: 120px;
-      .banner__slogan{
-        font-size: 1.9rem;
-        bottom: 70%;
-        text-align: center;
-      }
-    }
+
   .carousel{
     .carousel__image{
       height: 330px;
@@ -572,36 +668,7 @@ main{
     }
   }
 
-  .kasa-logo{
-    width: 146px;
-    height: 47px;
-  }
-  .gallery{
-    flex-direction: column;
-    gap: 4vh;
-    box-sizing: border-box;
-  
-    a{
-      display: flex;
-    }
-    .cards__individual, .cards__cover{
-      height: 30vh;
-      width: 100%;
-      margin: 0;
-    }
-  
-    .cards__gradient{  
-      &::after{
-        height: 30vh;
-        width: 100%;
-        text-align: center;
-      }
-    }
 
-    .cards__title{
-      font-size: 1.3rem;
-    }
-  }
   .error{
     .error__title{
     font-size: 11rem;
@@ -615,34 +682,22 @@ main{
     font-size: 1.2rem;
   }
   
-.footer{
-  height: 20vh;
-  justify-content: center;
-  margin-top: 0;
 
-  .footer__logo{
-    width: 122px;
-    height: 40px;
-  }
-
-  .footer__text{
-    width: 40%;
-
-  }
-}
 .collapsibles{
-  margin: 4vh 0;
+  margin: 2vh 0;
   flex-direction: column;
   gap: 0;
 
   .collapsible__high .displayed{
-    font-size: 1rem;
     height: 70px;
   }
 
   .collapsible__heading{
     height: 40px;
+    font-size: 1rem;
+    font-weight: 400;
   }
+
 }
 
 .collapsible__components{
@@ -650,32 +705,30 @@ main{
   padding: 0;
 }
 
-.rating{
-  margin-bottom: 0;
-}
+
 
 .properties{
   .properties__title{
-    font-size: 1.5rem
+    font-size: 1.3rem
   }
   .properties__subtitle{
     font-size: 1rem;
   }
   .properties__host{
-    gap: 1vh
+    gap: 1vh;
+    align-items: flex-end;
   }
   .properties__host__name{
     font-size: 1.2rem;
+  }
+  .properties__host__rating{
+    width: 130px;
   }
   .properties__content{
     margin-top: 1vh
   }
 }
 
-.tag{
-  margin-top: 2vh;
-  font-size: 0.7rem;
-}
 
 }
 
@@ -683,18 +736,7 @@ main{
     // 600px
 
 @media all and (max-width: 600px){
-  
-  .header{
-    .navbar__links{
-      font-size: 1.3rem;
-    }
-  }
 
-  .banner__slogan{
-    font-size: 1.7rem;
-    bottom: 75%;
-    text-align: center;
-  }
 
   .collapsible{
     .collapsible__icon{
@@ -703,41 +745,16 @@ main{
   }
 }
 
-.gallery{
-  flex-direction: column;
-
-  a{
-    display: flex;
-  }
-  .cards__individual, .cards__cover{
-    height: 30vh;
-    width: 100%;
-    margin: 0;
-  }
-
-  .cards__gradient{  
-    &::after{
-      height: 30vh;
-      width: 100%;
-      text-align: center;
-    }
-  }
-
-  .cards__title{
-    font-size: 1.3rem;
-    top: -60px;
-  }
-
-}
 
   .collapsible h2{
     font-size: 1rem;
   }
-
+.collapsibles{
+  align-items: center;
+}
   .collapsible{
     .collapsible__heading{
       height: 35px;
-      padding: 0 2vw
     }
     .collapsible__high .displayed{
       font-size: 0.8rem;
@@ -745,11 +762,13 @@ main{
     }
 }
 
-  .footer{
-    height: 20vh;
-   }
-
    .properties{
+    .properties__title{
+      font-size: 1rem;
+    }
+    .properties__subtitle{
+      font-size: 0.875rem
+    }
     .properties__content{
       flex-direction: column;
     }
@@ -760,30 +779,25 @@ main{
       margin-top: 2vh;
     }
     .properties__host__info{
-      justify-content: center;
+      justify-content: right;
+      width:30%;
     }
     .properties__host__picture {
       width: 50px;
       height: 50px;
     }
+  // permet de bien aligner les étoiles avec les renseignements sur l'hôte
+    .properties__host__rating{
+      padding-top:0;
+    }
   }
 
-  .tag{
-    font-size: 0.9rem;
-  }
 
-  .properties__tags{
-    flex-wrap: wrap;;
-  }
 
-.rating{
-  font-size: 1.4rem;
-  width: 150px;
-}
 
 }
 
-    //400px
+    //480px
 
 @media all and (max-width: 480px){
   .carousel{
@@ -796,18 +810,6 @@ main{
     }
   }
 
-  .header{
-    .navbar__links{
-      font-size: 0.9rem;
-    }
-    .banner{
-      .banner__slogan{
-        font-size: 1.5rem;
-        margin-left: 2vw;
-        bottom: 65%;
-      }
-    }
-  }
 
 
 }
@@ -815,53 +817,37 @@ main{
     //375px
 
 @media all and (max-width: 375px){
+
   .carousel__image{
     height: 300px;
   }
 
-  .header{
-    .navbar__links{
-      font-size: 0.9rem;
-    }
-  }
 
-  .footer{
-    .footer__text{
-      font-size: 0.9rem
-    }
-  }
-
-  .gallery{
-    .cards__individual, .cards__cover{
-      height: 20vh;
-      width: 100%;
-      margin: 0;
-    }
-  
-    .cards__gradient{  
-      &::after{
-        height: 20vh;
-        width: 100%;
-        text-align: center;
-      }
-    }
-  }
 
   .collapsible{
     .collapsible__icon{
     position: relative;
     top: 2px;
     }
+
+    .collapsible__high .displayed{
+      font-size: 0.8rem;
+      height: 70px;
+    }
   }
 
   .properties{
+    .properties__title{
+      font-size: 0.8rem;
+    }
+    .properties__subtitle{
+      font-size: 0.7rem
+    }
     .properties__host__name{
       font-size: 1rem;
       width: 60%;
     }
   }
 
-  .tag{
-    font-size: 0.8rem;
-  }
+
 }

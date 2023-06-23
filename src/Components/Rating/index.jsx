@@ -1,15 +1,12 @@
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStar } from '@fortawesome/free-solid-svg-icons'
-
-function Rating(){
+function Rating(props){
+    const numberOfStars = props.numberOfStars
     return (
         <div className="rating">
-            <FontAwesomeIcon icon={faStar} />
-            <FontAwesomeIcon icon={faStar} />
-            <FontAwesomeIcon icon={faStar} />
-            <FontAwesomeIcon icon={faStar} />
-            <FontAwesomeIcon icon={faStar} />
+            <i className= {` ${numberOfStars > 0 ? 'fa-solid fa-star active' : 'fa-solid fa-star inactive'}`}></i>
+            <i className={` ${numberOfStars > 1 ? 'fa-solid fa-star active' : 'fa-solid fa-star inactive'}`}></i>
+            <i className={` ${numberOfStars > 2 ? 'fa-solid fa-star active' : 'fa-solid fa-star inactive'}`}></i>
+            <i className={` ${numberOfStars > 2 ? 'fa-solid fa-star active' : 'fa-solid fa-star inactive'}`}></i>
+            <i className={` ${numberOfStars > 3 ? 'fa-solid fa-star active' : 'fa-solid fa-star inactive'}`}></i>
         </div>
     )
 }

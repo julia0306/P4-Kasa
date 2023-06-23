@@ -1,5 +1,3 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faChevronUp } from "@fortawesome/free-solid-svg-icons"
 import { useState } from 'react'
 
 const Collapsible = (props) => {
@@ -16,11 +14,13 @@ const Collapsible = (props) => {
       <div className="collapsible__components">
         <div className="collapsible__heading">
           <h2 className="font-weight-bold">{props.title}</h2>
-          <button className="collapsible__icon" onClick={handleCollapsibleToggle}><FontAwesomeIcon icon={faChevronUp} className={`${isRotated ? 'rotate-left' : 'rotate-right'}`}/></button>
+          <button className="collapsible__icon" onClick={handleCollapsibleToggle}>
+            <i className={`fa-sharp fa-solid fa-chevron-up ${isRotated ? 'rotate-left' : 'rotate-right'}`} />
+          </button>
         </div>
         <div className={`collapsible__content ${!isOpen ? 'not-displayed' : 'displayed'}`}>{props.content}</div>
-        </div>
       </div>
+    </div>
     )
     }
 

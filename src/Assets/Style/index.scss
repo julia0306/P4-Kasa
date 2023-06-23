@@ -5,6 +5,24 @@
   src: url("../Fonts/Montserrat.ttf");
 }
 
+@keyframes collapse {
+  0% {
+    max-height: 140px;
+  }
+  100% {
+    max-height: 0;
+  }
+}
+
+@keyframes expand {
+  0% {
+    max-height: 0;
+  }
+  100% {
+    max-height: 140px;
+  }
+}
+
 // COLORS NEEDED FOR THE PROJECT
 $salmon-pink:#FF6060;
 $light-grey:#F6F6F6;
@@ -107,9 +125,6 @@ main{
   }
 }
 
-.not-displayed{
-  display: none;
-}
 
 // COMPONENTS
 
@@ -505,10 +520,13 @@ main{
     
       .collapsible__content{
         position: relative;
-        top:-25px;
+        top:-35px;
         background-color: $light-grey;
         margin: 0;
-        padding: 38px 8px 8px 8px; 
+        font-size: 0.8rem;
+        @include flex-column;
+        justify-content: center;
+        padding: 35px 8px 0 8px;
       }
       .collapsible__full {
         @include flex-column();
@@ -518,31 +536,49 @@ main{
         @include flex-column();
         width: 100%;
       }
-    
-      .collapsible__high .displayed{
-        @include flex-column;
-        font-size: 1rem;
-        height: 120px;
-        justify-content: center;
-        @media all and (min-width: 1200px){
-          height: 120px;
-          font-size: 1.1rem;
-        }
-        @media all and (max-width: 1050px){
-          height: 120px;
-          font-size: 0.9rem;
-        }
-        @media all and (max-width: 920px){
-          height: 120px;
-          font-size: 1rem;
-        }
-        @media all and (max-width: 600px){
-          font-size: 0.8rem;
-          height: 60px;
-        }
-        @media all and (max-width: 375px){
-          height: 70px;
-        }
+
+
+      .not-displayed {
+        display: none;
+        max-height: 0;
+        padding: 0;
+        overflow: hidden;
+        animation: collapse 0.3s ease-out forwards;
+        
+      }
+
+      .collapse{
+        max-height: 0;
+        overflow: hidden;
+        animation: collapse 0.3s ease-out;
+      }
+      
+      .unfold {
+        max-height: 140px;
+        transition: max-height 0.8s ease-out;
+        animation: unfold 0.8s ease-out forwards;
+
+        // @media all and (min-width: 1200px){
+        //   height: 120px;
+        //   font-size: 1.1rem;
+        // }
+        // @media all and (max-width: 1050px){
+        //   height: 120px;
+        //   font-size: 0.9rem;
+        // }
+        // @media all and (max-width: 920px){
+        //   height: 120px;
+        //   font-size: 1rem;
+        // }
+        // @media all and (max-width: 600px){
+        //   font-size: 0.8rem;
+        //   height: 60px;
+        // }
+        // @media all and (max-width: 375px){
+        //   height: 70px;
+        // }
+      }
+
       }
 
       .collapsible__title{
@@ -558,7 +594,10 @@ main{
         }
       }
       
-  }
+
+
+  
+
     // Carousel
 
 .carousel{
@@ -747,6 +786,7 @@ main{
     width: 90%;
     margin: 0 auto;
     justify-self: center;
+    padding: 0;
 
     @media all and (min-width: 920px){
       padding: 3vh 0;
@@ -907,5 +947,4 @@ main{
     }
   }
 }
-
 

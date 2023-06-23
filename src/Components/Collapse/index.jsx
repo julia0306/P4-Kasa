@@ -3,10 +3,14 @@ import { useState } from 'react'
 const Collapsible = (props) => {
   const [isOpen, setIsOpen]=useState(false)
   const [isRotated, setIsRotated] = useState(false);
+  const [isUnfolded, setIsUnfolded] = useState (false)
+  const [isClosedOnOpening, setIsClosedOnOpening] =useState (true)
 
   const handleCollapsibleToggle = () => {
     setIsOpen(!isOpen);
     setIsRotated(!isRotated);
+    setIsUnfolded(!isUnfolded);
+    setIsClosedOnOpening(false)
   };
 
     return (
@@ -18,7 +22,7 @@ const Collapsible = (props) => {
             <i className={`fa-sharp fa-solid fa-chevron-up ${isRotated ? 'rotate-left' : 'rotate-right'}`} />
           </button>
         </div>
-        <div className={`collapsible__content ${!isOpen ? 'not-displayed' : 'displayed'}`}>{props.content}</div>
+        <div className={`collapsible__content ${isClosedOnOpening ? 'not-displayed' : (isUnfolded ? 'unfold' : 'collapse')}`}>{props.content}</div>
       </div>
     </div>
     )

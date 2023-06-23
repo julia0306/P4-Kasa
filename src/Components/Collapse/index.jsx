@@ -13,7 +13,7 @@ const Collapsible = (props) => {
     <div className={props.className}>
       <div className="collapsible__components">
         <div className="collapsible__heading">
-          <h2 className="font-weight-bold">{props.title}</h2>
+          <h2 className="collapsible__title">{props.title}</h2>
           <button className="collapsible__icon" onClick={handleCollapsibleToggle}>
             <i className={`fa-sharp fa-solid fa-chevron-up ${isRotated ? 'rotate-left' : 'rotate-right'}`} />
           </button>

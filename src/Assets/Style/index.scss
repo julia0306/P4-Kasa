@@ -211,15 +211,12 @@ main{
       flex-wrap: wrap;
     }
     @media all and (max-width: 458px) {
-      bottom: 120px;
+      bottom: 130px;
       text-align: left;
       padding-left: 16px;
     }
     @media all and (max-width: 375px) {
-      bottom: 130px;
       font-size: 1.6rem;
-      text-align: left;
-      padding-left: 16px;
     }
   }
 }
@@ -453,7 +450,7 @@ margin: 16px 0 ;
 
 .collapsible{
 width: 100%;
-margin: 2vh 0;    
+margin: 16px 0;    
   &__heading{
     @include flex-row-center();
     @include pinkBG_whiteFont();
@@ -547,6 +544,7 @@ margin: 2vh 0;
 
   .unfold {
     max-height: 280px;
+    overflow: hidden;
     transition: max-height 0.8s ease-out;
     animation: expand 0.8s ease-out ;
   }
@@ -693,10 +691,13 @@ margin: 2vh 0;
     // Rating
 
     .rating{
-      color: #E3E3E3;
       font-size: 1.5rem;
       display: flex;
       justify-content: flex-end;
+      @media all and (min-width: 920px){
+        width: 100%;
+        justify-content: space-between;
+      }
     
       @media all and (max-width:600px){
         font-size: 1.125rem;
@@ -804,10 +805,9 @@ margin: 2vh 0;
 .about{
   &__collapsibles{
     @include flex-column();
-    min-height:37vh;
     justify-content: space-between;
     width: 100%;
-    margin: 0 auto;
+    margin: 0 auto 3vh;
     padding: 0;
 
     @media all and (min-width: 920px){
@@ -819,8 +819,9 @@ margin: 2vh 0;
       width: 90vw;
     }
   }
-  .banner{
-    @media all and (max-width: 600px) {
+  .banner{    
+    margin: 3vh auto 0 auto;
+    @media all and (max-width: 920px) {
     height: 300px;
     margin: 3vh auto;
     }
@@ -938,7 +939,7 @@ margin: 2vh 0;
     justify-content: flex-end;
     margin: 0;
     padding: 0;
-    width: 196px;
+    width: 180px;
     @media all and (max-width: 600px){
       justify-content: right;
       width:40%;
@@ -968,6 +969,10 @@ margin: 2vh 0;
   }
 
   &__host__rating{
+    @media all and (min-width: 920px){
+      width: 100%;
+      padding-top: 16px;
+      }
     @media all and (max-width: 920px){
     width: 130px;
     padding-top: 16px;
@@ -988,4 +993,19 @@ margin: 2vh 0;
   }
 }
 
+.properties .collapsibles{
+  @media all and (min-width: 920px){
+    gap: 6vw
+  }
+  @media all and (max-width: 920px){
+    gap: 0;
+    margin: 0;
 
+  }
+}
+
+.properties .collapsible__heading{
+  @media all and (max-width: 375px){
+    height: 35px;
+  }  
+}

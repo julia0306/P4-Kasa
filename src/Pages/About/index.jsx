@@ -4,8 +4,7 @@ import Collapsible from "../../Components/Collapse";
 
 function About() {
     return (
-        <main>
-            <div className="about">
+            <main className="about">
                     <Banner 
                         image={image}
                     />
@@ -37,8 +36,7 @@ function About() {
                             également des ateliers sur la sécurité domestique pour nos hôtes."
                         />
                     </div>
-            </div>
-        </main>
+            </main>
     );
   }
   

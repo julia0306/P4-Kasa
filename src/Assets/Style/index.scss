@@ -1,13 +1,14 @@
-// FONTS NEEDED FOR THE PROJECT
+// COLORS NEEDED FOR THE PROJECT
+$salmon-pink:#FF6060;
+$light-grey:#F6F6F6;
 
-@font-face {
-  font-family: "Montserrat";
-  src: url("../Fonts/Montserrat.ttf");
-}
+// CSS ANIMATIONS AND TRANSITIONS
 
-@keyframes collapse {
+// Collapse and expand for all the collapsibles 
+
+@keyframes fold-up{
   0% {
-    max-height: 140px;
+    max-height: 250px;
   }
   100% {
     max-height: 0;
@@ -19,14 +20,19 @@
     max-height: 0;
   }
   100% {
-    max-height: 140px;
+    max-height: 250px;
   }
 }
 
-// COLORS NEEDED FOR THE PROJECT
-$salmon-pink:#FF6060;
-$light-grey:#F6F6F6;
-
+// Rotate buttons on collapsibles : 
+.rotate-left {
+  transform: rotate(-0.5turn);
+  transition: transform 0.3s ease-in-out;
+}
+.rotate-right {
+  transform: rotate(0turn);
+  transition: transform 0.5s ease-in-out;
+}
 
 // MIXINS TO BE REUSED IN THE PROJECT
 
@@ -61,6 +67,13 @@ $light-grey:#F6F6F6;
   border-radius: 10px;
 }
 
+@mixin card-properties4{
+  height: calc(110px + 17vw);
+  width :calc(110px + 17vw);
+  justify-content: center;
+  border-radius: 10px;
+}
+
 @mixin card-properties2{
   height: calc(110px + 9vw);
   width :calc(110px + 9vw);
@@ -68,8 +81,14 @@ $light-grey:#F6F6F6;
 }
 
 @mixin card-properties3{
-  height: calc(110px + 13vw);
-  width :calc(110px + 13vw);
+  height: calc(110px + 18vw);
+  width :calc(110px + 18vw);
+  border-radius: 10px;
+}
+
+@mixin card-properties5{
+  height: calc(110px + 15vw);
+  width :calc(110px + 15vw);
   border-radius: 10px;
 }
 
@@ -80,76 +99,560 @@ $light-grey:#F6F6F6;
   
 .active{
   color: $salmon-pink;}
-html{
-  margin: 0
-}
+
 body { 
   position: relative;
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
   font-weight: 500;
-  padding: 32px 0px 130px 0px;
+  height: fit-content;
+  padding: 32px 48px 0px 48px;
   color: $salmon-pink;
   overflow-x: hidden;
   margin: 0;
+  @media all and (max-width: 920px){
+    padding: 32px 0 0 0;
+  }
 
 }
 
-@media all and (min-width: 1300px){
-  header, main {
-    width: 80%;
-    margin: 0 10%
-  };
+  @media all and (min-width: 1300px){
+    header, main {
+      width: 1200px;
+      padding: 0 10%;
+    };
+  }
 
-}
+  @media all and (min-width: 1024px){
+    header, main {
+      width: 1024px;
+      padding: 0 10%;
+    };
+  }
 
 main{
-  margin: 0% 10%;
-  width: 80%;
-  padding-bottom: 7%;
-  align-self: center;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0;
+  padding-bottom: 220px;
   min-width: 275px;
+  align-self: center;
 
   @media all and (max-width: 920px){
-    width:92%;
-    margin: 0 4%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;;
-  }
-  
-  @media all and (max-width: 375px){
-    width:95%;
-    margin: 2% 2.5%;
+    padding-bottom: 230px;
   }
 }
 
 
 // COMPONENTS
 
+
+    // Banner
+
+.banner{
+  @include border-radius10();
+  width: 100%;
+  margin: 5vh auto;
+  height: 223px;
+  background-color: #00000028;
+  min-width: 295px;
+  @media all and (max-width: 920px) {
+    width: 90vw;
+    height: 210px;
+    margin: 4vh auto;    
+  }
+  @media all and (max-width: 600px) {
+    height: 160px;
+    margin: 3vh auto;
+  }
+
+  @media all and (max-width: 375px) {
+    width:90vw;
+    margin: 2vh auto;
+  }
+
+  &__image{
+    @include border-radius10();
+    z-index: 10;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    mix-blend-mode:color-dodge;
+    opacity: 1.7; 
+    margin: 0 auto;
+  }
+
+  &__title{
+    z-index: 100;
+    position: relative;
+    font-size: 3.2rem;
+    font-weight:500;
+    color: white;
+
+    @media all and (min-width: 1301px) {
+      bottom: 170px;
+      font-size: 3.2rem;
+      text-align: center;
+    }
+    @media all and (max-width: 1301px) {
+      bottom: 160px;
+      font-size: 2.7rem;
+      text-align: center
+    }
+    @media all and (max-width: 920px) {
+      font-size: 2.4rem;
+      bottom: 160px;
+    }
+    @media all and (max-width: 600px) {
+      font-size: 1.8rem;
+      bottom: 115px;
+      justify-content: center;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    @media all and (max-width: 458px) {
+      bottom: 120px;
+      text-align: left;
+      padding-left: 16px;
+    }
+    @media all and (max-width: 375px) {
+      bottom: 130px;
+      font-size: 1.6rem;
+      text-align: left;
+      padding-left: 16px;
+    }
+  }
+}
+        
+
+// Cards
+
+.cards{
+  &__individual{
+    @include card-properties1();
+
+    @media all and (min-width: 1300px) {
+      @include card-properties2(); 
+    }
+
+    @media all and (min-width: 1200px) and (max-width: 1300px) {
+      @include card-properties3(); 
+    }
+    
+    @media all and (min-width: 1100px) and (max-width: 1200px) {
+      @include card-properties4(); 
+    }
+
+    @media all and (min-width: 920px) and (max-width: 1100px) {
+      @include card-properties5(); 
+    }
+
+    @media all and (max-width: 920px) {
+      width: 90vw;
+      height: 290px;
+      margin: 0;     
+    }
+    @media all and (max-width: 375px) {
+      width: 90vw;
+      height: 250px; 
+      margin: 0;
+      min-width: 295px;     
+    }
+  }
+
+  &__cover{
+    @include card-properties1();
+    object-fit: cover;
+
+    @media all and (min-width: 1300px) {
+      @include card-properties2(); 
+    }
+    @media all and (min-width: 1200px) and (max-width: 1300px) {
+      @include card-properties3(); 
+    }
+    
+    @media all and (min-width: 1100px) and (max-width: 1200px) {
+      @include card-properties4(); 
+    }
+
+    @media all and (min-width: 920px) and (max-width: 1100px) {
+      @include card-properties5(); 
+    }
+
+    @media all and (max-width: 920px) {
+      width:100%;
+      height: 290px;
+    }
+    @media all and (max-width: 375px) {
+      width: 90vw;
+      height: 250px;
+      margin: 0;   
+      min-width: 295px;  
+    }
+  }
+
+  &__gradient{
+    position: relative;
+  
+    &::after{
+      content:'';
+      @include card-properties1();
+      position: absolute;
+      top:0;
+      left:0;
+      background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4));
+
+      @media all and (min-width: 1300px) {
+        @include card-properties2(); 
+      }
+      
+      @media all and (min-width: 1200px) and (max-width: 1300px) {
+        @include card-properties3(); 
+      }
+      
+      @media all and (min-width: 1100px) and (max-width: 1200px) {
+        @include card-properties4(); 
+      }
+
+      @media all and (min-width: 920px) and (max-width: 1100px) {
+        @include card-properties5(); 
+      }
+
+      @media all and (max-width: 920px) {
+        width:100%;
+        height: 290px;
+      }
+      @media all and (max-width: 375px) {
+        width: 90vw;
+        height: 250px;
+        margin: 0;
+        min-width: 295px;     
+      }
+    }
+  }
+
+  &__title{
+    position: relative;
+    bottom:20%;
+    left: 10px;
+    width:92%;
+    font-size: 1rem;
+    color: #fff;
+
+    @media all and (min-width: 1024px){
+      font-size: 0.9rem;
+      bottom:20%
+    }
+
+    @media all and (max-width: 1024px){
+      font-size: 0.8rem;
+      bottom:20%
+    }
+
+    @media all and (max-width: 920px){
+      font-size: 1.5rem;
+      bottom:25%
+    }
+
+    @media all and (max-width: 600px){
+      font-size: 1.2rem;
+      bottom: 25%;
+    }
+  }
+}
+
+    // Carousel
+
+.carousel{
+  margin: 5vh auto 2vh auto;
+  @media all and (max-width: 920px) {
+  width: 100%;      
+  }
+    
+  &__image{
+    width: 100%;
+    height:415px;
+    align-self: center;
+    border-radius: 10px;
+    object-fit: cover;
+
+    @media all and (min-width: 1300px){
+      height: 470px;
+    }
+
+    @media all and (max-width: 600px){
+      height: 300px;
+
+    @media all and (max-width: 375px){
+      height: 250px;
+    }
+    }
+  }
+  
+  &__arrows{
+      display: flex;
+      justify-content: space-between;
+      width: 96%;
+      margin: 0 auto;
+      position: relative;
+      top: -240px;
+      height: 0;
+      @media all and (max-width: 600px){
+        top: -180px
+      }
+      @media all and (max-width: 375px){
+        top: -155px
+      }
+
+    }
+  &__navigation{
+    color: white;
+    text-align: center;
+    position: relative;
+    top: -50px;
+    height: 0;
+
+  }
+  
+  
+  button{
+    border:none;
+    background: none;
+    color: white;
+    font-size: 3.75rem;
+
+    @media all and (max-width:600px){
+      font-size: 3rem;
+    }
+    
+    @media all and (max-width:375px){
+      font-size: 2.7rem;
+    }
+  }
+  
+  button :hover{
+    cursor: pointer
+  }
+}
+
+    // Collapsible 
+
+
+.collapsibles{
+display: flex;
+justify-content: space-between;
+gap: 16px;
+margin: 16px 0 ;
+
+@media all and (max-width: 920px){
+  flex-direction: column;
+  width: 100%;
+}
+
+}
+
+.collapsible{
+width: 100%;
+margin: 2vh 0;    
+  &__heading{
+    @include flex-row-center();
+    @include pinkBG_whiteFont();
+    justify-content: space-between;
+    z-index: 100;
+    height:52px;
+    padding: 0 3%;
+    width: 94%;
+    border-radius: 10px;
+
+    @media all and (max-width: 920px){
+      height: 45px;
+    }
+
+    @media all and (max-width: 600px){
+      height: 40px;
+    }
+  }
+
+  &__icon{
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    margin:0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    font-size: 1.8rem;
+
+    @media all and (max-width: 600px){
+      position: relative;
+      top: 2px;
+      font-size: 1.3rem;
+    }
+  }
+
+  &__content{
+    position: relative;
+    top:-10px;
+    background-color: $light-grey;
+    margin: 0;
+    font-size: 1rem;
+    @include flex-column;
+    justify-content: center;
+  }
+
+  &__full {
+    @include flex-column();
+  }
+
+  &__components{
+    @include flex-column();
+    width: 100%;
+  }
+
+  &__size{
+    @include flex-column();
+    height: fit-content;
+    padding: 30px 16px 16px 16px;
+    overflow: hidden;
+    justify-content: center;
+  }
+  &__title{
+    font-size: 1.3rem;
+    font-weight: 500;
+  
+    @media all and (max-width: 920px){
+      font-weight: 400;
+    }
+    @media all and (max-width: 600px){
+      font-weight: 400;
+      font-size: 1.1rem;
+    }
+  }
+
+  .not-displayed {
+    display: none;
+    max-height: 0;
+    padding: 0;
+    overflow: hidden;
+    animation: collapse 0.5s ease-out;
+    
+  }
+
+  .collapse{
+    max-height: 0;
+    overflow: hidden;
+    animation: fold-up 0.5s ease-out;
+  }
+
+  .unfold {
+    max-height: 280px;
+    transition: max-height 0.8s ease-out;
+    animation: expand 0.8s ease-out ;
+  }
+
+}
+
+
+    // Footer
+
+    .footer{
+      @include flex-column-center();
+      position: absolute;
+      bottom: 0;
+      left:0;
+      justify-content: space-around;
+      width: 100vw;
+      min-width: 293px;
+      height:120px;
+      background-color: black;
+      color: white;
+      padding: 5vh 0 3vh 0;
+    
+      @media all and (max-width:920px){
+        justify-content: center;
+        height: 160px;
+      }
+    
+      &__logo{
+        margin-bottom: 2vh;
+        width: 122px;
+        height: 40px;
+      }
+    
+      &__text{
+        font-size: 1.125rem;
+    
+        @media all and (max-width:920px){
+          font-size: 1rem;
+          width: 40%;
+          text-align: center;
+        }
+        
+        @media all and (max-width:375px){
+            font-size: 0.75rem
+        }
+      }
+    }
+    
+    
+        //Gallery
+    .gallery{
+      @include flex-row-center();
+      position: relative;
+      flex-wrap: wrap;
+      gap: 3vw;
+      justify-content:center;
+      border-radius: 20px;
+      background-color: #F6F6F6;
+      width: 100%;
+      padding-top: 5vh;
+      padding-bottom: 5vh;
+      margin: 0 auto;
+      min-width: 295px;
+    
+      a{
+        @media all and (max-width: 920px){
+        display:flex;
+        justify-content: center;}
+      }
+    
+      @media all and (min-width: 1300px){
+        gap: 2.5vw;
+      }
+    
+      @media all and (max-width: 1030px){
+        gap: 3vw;
+      }
+    
+      @media all and (max-width: 920px){
+        @include flex-column();
+        background-color: white;
+        justify-content: flex-start;
+        padding-top: 2vh;
+      }
+    
+      
+      @media all and (max-width: 600px){
+        @include flex-column();
+        gap: 4vh;
+        background-color: white;
+        margin: 0;
+      }
+    }
+    
+    
     // Header
 
 .header{
   @include flex-row-center();
   justify-content: space-between;
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
   min-width: 275px;
-
   @media all and (max-width: 920px){
-    width:90vw;
-    margin: 2% auto;
-  }
-
-  @media all and (max-width: 600px){
-    width:90vw;
-    margin: 2% auto;
-  }
-  
-  @media all and (max-width: 375px){
-    width:95%;
-    margin: 2% 2.5%;
+    width: 90vw;
+    min-width: 295px;
   }
   
   .kasa-logo{
@@ -176,499 +679,32 @@ main{
     }
     @media all and (max-width: 375px){
       font-size: 0.75rem;
+      text-transform:uppercase;
     }
   }
 
   .navbar__links__active{
-    padding-bottom: 0.7vh;
-    border-bottom: 2px solid $salmon-pink;
+    text-decoration: underline;
   }
 
 }
 
-    // Banner
 
-.banner{
-  @include border-radius10();
-  height: 25vh;
-  min-height: 150px;
-  width: 100%;
-  margin: 5vh auto;
-  background-color: #00000028;
+    // Rating
 
-  @media all and (max-width: 920px) {
-    height: 20vh;
-    width: 90vw;
-    margin: 4vh auto;    
-  }
-  @media all and (max-width: 600px) {
-    height: 15vh;
-    width:90vw;
-    margin: 4vh auto;
-  }
-
-
-
-  .banner__image{
-    @include border-radius10();
-    z-index: 10;
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-    mix-blend-mode:color-dodge;
-    opacity: 1.7; 
-  }
-
-  .banner__title{
-    z-index: 100;
-    position: relative;
-    font-size: 3.2rem;
-    font-weight:500;
-    color: white;
-
-    @media all and (min-width: 1051px) {
-      bottom: 85%;
-      font-size: 3.2rem;
-      text-align: center;
-    }
-      @media all and (max-width: 1051px) {
-        bottom: 80%;
-        font-size: 2.7rem;
-        text-align: center;
-      }
-      @media all and (max-width: 920px) {
-        font-size: 2.3rem;
-        bottom: 80%;
-      }
-      @media all and (max-width: 600px) {
-        font-size: 1.8rem;
-        bottom: 70%;
-        justify-content: center;
-        display: flex;
-        flex-wrap: wrap;
-      }
-      @media all and (max-width: 375px) {
-        font-size: 1.6rem;
-        padding-left: 3vw;
-        text-align: left;
-      }
-  }
-}
-    
-    // Footer
-
-.footer{
-  @include flex-column-center();
-  position: absolute;
-  bottom: 0;
-  left:0;
-  justify-content: space-around;
-  width: 100vw;
-  height:120px;
-  background-color: black;
-  color: white;
-  padding: 5vh 0 3vh 0;
-
-  @media all and (max-width:920px){
-    justify-content: center;
-    height: 17vh;
-  }
-
-  .footer__logo{
-    margin-bottom: 2vh;
-    width: 122px;
-    height: 40px;
-  }
-
-  .footer__text{
-    font-size: 1.125rem;
-
-    @media all and (max-width:920px){
-      font-size: 1rem;
-      width: 40%;
-      text-align: center;
-    }
-    
-    @media all and (max-width:375px){
-        font-size: 0.75rem
-    }
-  }
-}
-
-
-    //Gallery
-.gallery{
-  @include flex-row-center();
-  position: relative;
-  flex-wrap: wrap;
-  gap: 30px;
-  justify-content:center;
-  border-radius: 20px;
-  background-color: #F6F6F6;
-  width: 100%;
-  padding-top: 5vh;
-  padding-bottom: 5vh;
-  margin: 0 auto;
-
-  a{
-    @media all and (max-width: 920px){
-    display:flex;
-    width:100%;
-    justify-content: center;}
-  }
-
-  @media all and (min-width: 1300px){
-    gap: 2.5vw;
-  }
-
-  @media all and (max-width: 1030px){
-    gap: 4vw;
-  }
-
-  @media all and (max-width: 920px){
-    @include flex-column();
-    background-color: white;
-    justify-content: flex-start;
-    padding-bottom: 16px;
-    padding-top: 2vh;
-    padding-bottom: 6vh;
-  }
-
-  
-  @media all and (max-width: 600px){
-    @include flex-column();
-    gap: 4vh;
-    background-color: white;
-    margin: 0;
-    padding-bottom: 6vh;
-  }
-
-  .cards__individual{
-    @include card-properties1();
-
-    @media all and (min-width: 1300px) {
-      @include card-properties2(); 
-    }
-
-    @media all and (min-width: 1030px) and (max-width: 1300px) {
-      @include card-properties3(); 
-    }
-
-    @media all and (min-width: 920px) and (max-width: 1030px) {
-      @include card-properties2(); 
-    }
-
-    @media all and (max-width: 920px) {
-      width: 90vw;
-      height: 30vh; 
-      margin: 0;     
-    }
-
-
-  }
-
-  .cards__cover{
-    @include card-properties1();
-    object-fit: cover;
-
-    @media all and (min-width: 1300px) {
-      @include card-properties2(); 
-    }
-    @media all and (min-width: 1030px) and (max-width: 1300px) {
-      @include card-properties3(); 
-    }
-
-    @media all and (min-width: 920px) and (max-width: 1030px) {
-      @include card-properties2(); 
-    }
-
-    @media all and (max-width: 920px) {
-      width:100%;
-      height: 30vh
-    }
-  }
-
-  .cards__gradient{
-    position: relative;
-  
-    &::after{
-      content:'';
-      @include card-properties1();
-      position: absolute;
-      top:0;
-      left:0;
-      background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4));
-
-      @media all and (min-width: 1300px) {
-        @include card-properties2(); 
-      }
-      
-      @media all and (min-width: 1030px) and (max-width: 1300px) {
-        @include card-properties3(); 
-      }
-
-      @media all and (min-width: 920px) and (max-width: 1030px) {
-        @include card-properties2(); 
-      }
-
-      @media all and (max-width: 920px) {
-        width:100%;
-        height: 30vh;
-      }
-    }
-  }
-
-  .cards__title{
-    position: relative;
-    bottom:57px;
-    left: 10px;
-    width:92%;
-    font-size: 1rem;
-    color: #fff;
-
-    @media all and (max-width: 1124px){
-      font-size: 1rem;
-    }
-
-    @media all and (max-width: 1100px){
-      font-size: 0.9rem;
-    }
-
-    @media all and (max-width: 920px){
+    .rating{
+      color: #E3E3E3;
       font-size: 1.5rem;
-    }
-
-    @media all and (max-width: 600px){
-      font-size: 1.2rem;
-      bottom: 60px;
-    }
-  }
-}
-
-    // Collapsible 
-
-
-    .collapsibles{
       display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      margin: 5vh 0 10vh 0;
-      padding-bottom: 5vh;
-      
-      @media all and (max-width: 920px){
-        margin: 2vh 0;
-        flex-direction: column;
-        width: 100%;
-        gap: 0;
-      }
-
-    }
-    .properties .collapsibles {
-      @media all and (min-width: 920px){
-        gap: 5vw;
-      }        
-    }
+      justify-content: flex-end;
     
-    .collapsible{
-      width: 100%;
-      margin: 2vh 0;    
-      .collapsible__heading{
-        @include flex-row-center();
-        @include pinkBG_whiteFont();
-        justify-content: space-between;
-        z-index: 100;
-        height:52px;
-        padding: 0 3%;
-        width: 94%;
-        border-radius: 10px;
-
-        @media all and (max-width: 920px){
-          height: 45px;
-        }
-
-        @media all and (max-width: 600px){
-          height: 40px;
-        }
+      @media all and (max-width:600px){
+        font-size: 1.125rem;
+        justify-content: flex-start;
       }
+    }
+
     
-      .collapsible__icon{
-        background: none;
-        color: inherit;
-        border: none;
-        padding: 0;
-        margin:0;
-        font: inherit;
-        cursor: pointer;
-        outline: inherit;
-        font-size: 1.8rem;
-
-        @media all and (max-width: 600px){
-          position: relative;
-          top: 2px;
-          font-size: 1.3rem;
-        }
-      }
-    
-      .rotate-left {
-        transform: rotate(-0.5turn);
-        transition: transform 0.3s ease-in-out;
-      }
-      .rotate-right {
-        transform: rotate(0turn);
-        transition: transform 0.3s ease-in-out;
-      }
-    
-      .collapsible__content{
-        position: relative;
-        top:-35px;
-        background-color: $light-grey;
-        margin: 0;
-        font-size: 0.8rem;
-        @include flex-column;
-        justify-content: center;
-        padding: 35px 8px 0 8px;
-      }
-      .collapsible__full {
-        @include flex-column();
-      }
-    
-      .collapsible__components{
-        @include flex-column();
-        width: 100%;
-      }
-
-
-      .not-displayed {
-        display: none;
-        max-height: 0;
-        padding: 0;
-        overflow: hidden;
-        animation: collapse 0.3s ease-out forwards;
-        
-      }
-
-      .collapse{
-        max-height: 0;
-        overflow: hidden;
-        animation: collapse 0.3s ease-out;
-      }
-      
-      .unfold {
-        max-height: 140px;
-        transition: max-height 0.8s ease-out;
-        animation: unfold 0.8s ease-out forwards;
-
-        // @media all and (min-width: 1200px){
-        //   height: 120px;
-        //   font-size: 1.1rem;
-        // }
-        // @media all and (max-width: 1050px){
-        //   height: 120px;
-        //   font-size: 0.9rem;
-        // }
-        // @media all and (max-width: 920px){
-        //   height: 120px;
-        //   font-size: 1rem;
-        // }
-        // @media all and (max-width: 600px){
-        //   font-size: 0.8rem;
-        //   height: 60px;
-        // }
-        // @media all and (max-width: 375px){
-        //   height: 70px;
-        // }
-      }
-
-      }
-
-      .collapsible__title{
-        font-size: 1.3rem;
-        font-weight: 500;
-
-        @media all and (max-width: 920px){
-          font-weight: 400;
-        }
-        @media all and (max-width: 600px){
-          font-weight: 400;
-          font-size: 1.1rem;
-        }
-      }
-      
-
-
-  
-
-    // Carousel
-
-.carousel{
-  margin: 5vh auto 2vh auto;
-  @media all and (max-width: 920px) {
-    width: 100%;
-    
-  }
-
-  .carousel__image{
-    width: 100%;
-    height:415px;
-    align-self: center;
-    border-radius: 10px;
-    object-fit: cover;
-
-    @media all and (max-width: 600px){
-      height: 300px;
-
-    @media all and (max-width: 375px){
-      height: 250px;
-    }
-    }
-    }
-  
-  .carousel__arrows{
-      display: flex;
-      justify-content: space-between;
-      width: 96%;
-      margin: 0 auto;
-      position: relative;
-      top: -240px;
-      height: 0;
-      @media all and (max-width: 600px){
-        top: -180px
-      }
-      @media all and (max-width: 375px){
-        top: -155px
-      }
-
-    }
-    .carousel__navigation{
-      color: white;
-      text-align: center;
-      position: relative;
-      top: -50px;
-      height: 0;
-  
-    }
-  
-  
-  button{
-    border:none;
-    background: none;
-    color: white;
-    font-size: 3.75rem;
-
-    @media all and (max-width:600px){
-      font-size: 3rem;
-    }
-    
-    @media all and (max-width:375px){
-      font-size: 2.7rem;
-    }
-  }
-  
-  button :hover{
-    cursor: pointer
-  }
-}
-
     // Tag
 
 .tag{
@@ -701,19 +737,6 @@ main{
 }
 
 
-    // Rating
-
-.rating{
-  color: #E3E3E3;
-  font-size: 1.5rem;
-  display: flex;
-  justify-content: flex-end;
-
-  @media all and (max-width:600px){
-    font-size: 1.125rem;
-    justify-content: flex-start;
-  }
-}
 
 
 // PAGES
@@ -746,7 +769,7 @@ main{
     }
   }
 
-  .error__info{
+  &__info{
     font-size: 2rem;
     font-weight: 500;
     margin:0 auto;
@@ -759,7 +782,7 @@ main{
       }
   }
 
-  .error__link{
+  &__link{
     text-decoration: none;
     color:#FF6060;
     font-size: 1rem;
@@ -783,23 +806,29 @@ main{
     @include flex-column();
     min-height:37vh;
     justify-content: space-between;
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
-    justify-self: center;
     padding: 0;
 
     @media all and (min-width: 920px){
-      padding: 3vh 0;
+      padding-top: 3vh;
+      width: 80%;
     }
 
     @media all and (max-width: 920px){
-      padding-bottom: 5vh;
+      width: 90vw;
     }
   }
   .banner{
     @media all and (max-width: 600px) {
     height: 300px;
+    margin: 3vh auto;
     }
+  
+    @media all and (max-width: 375px) {
+      height: 250px;
+      min-width: 295px;
+      }
   }
 }
 
@@ -807,23 +836,24 @@ main{
     //Properties
 
 .properties{
+  width: 100%;
   padding-bottom: 0;
+  margin: 0 auto;
   @media all and (max-width: 920px){
-    padding-bottom: 48px;
+    width: 90vw;
   }
 
-  .properties__content{
+  &__content{
     display: flex;
     justify-content: space-between;
     @media all and (max-width: 920px){
-      width: 100%;
       margin-top: 1vh;
     }
     @media all and (max-width: 600px){
       flex-direction: column;
     }
   }
-  .properties__title{
+  &__title{
     font-size: 2.1rem;
     font-weight: 500;
     margin:0;
@@ -842,7 +872,7 @@ main{
     }
   }
 
-  .properties__subtitle{
+  &__subtitle{
     font-size: 1.5rem;
     font-weight: 500;
     margin: 0;
@@ -857,13 +887,13 @@ main{
     }
   }
 
-  .properties__tags{
+  &__tags{
     display: flex; 
     justify-content: flex-start;
     gap: 1.5vw;
   }
 
-  .properties__info{
+  &__info{
     @include flex-column();
     justify-content: space-between;
     gap: 8px;
@@ -875,7 +905,7 @@ main{
       gap: 1vh
     }
   }
-  .properties__host{
+  &__host{
     @include flex-column();
     justify-content: space-around;
 
@@ -890,7 +920,7 @@ main{
     }
 
   }
-  .properties__host__picture {
+  &__host__picture {
     border-radius:50%;
     margin: 0 0 0 1.5vw;
     padding-top:0;
@@ -903,7 +933,7 @@ main{
     }
   }
   
-  .properties__host__info{
+  &__host__info{
     @include flex-row-center();
     justify-content: flex-end;
     margin: 0;
@@ -916,7 +946,7 @@ main{
     }
   }
   
-  .properties__host__name{
+  &__host__name{
     display: flex;
     flex-wrap: wrap;
     font-size: 1.2rem;
@@ -937,7 +967,7 @@ main{
     }
   }
 
-  .properties__host__rating{
+  &__host__rating{
     @media all and (max-width: 920px){
     width: 130px;
     padding-top: 16px;
@@ -946,5 +976,16 @@ main{
         padding-top:8px;
     }
   }
+
 }
+
+.properties .collapsible__size{
+  @include flex-column();
+  justify-content: space-around;
+  @media all and (min-width: 920px){
+    min-height: 150px
+    
+  }
+}
+
 

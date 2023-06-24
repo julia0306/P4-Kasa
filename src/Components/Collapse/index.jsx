@@ -22,7 +22,11 @@ const Collapsible = (props) => {
             <i className={`fa-sharp fa-solid fa-chevron-up ${isRotated ? 'rotate-left' : 'rotate-right'}`} />
           </button>
         </div>
-        <div className={`collapsible__content ${isClosedOnOpening ? 'not-displayed' : (isUnfolded ? 'unfold' : 'collapse')}`}>{props.content}</div>
+        <div className={`collapsible__content ${isClosedOnOpening ? 'not-displayed' : (isUnfolded ? 'unfold' : 'collapse')}`}>
+          <div className='collapsible__size'>
+            {props.content}
+          </div>
+        </div>
       </div>
     </div>
     )

@@ -27,44 +27,46 @@ function Properties(){
     const {rating} = selectedProperty || {}
 
     return (
-        <main className="properties">
-            <Carousel 
-                pictures={pictures}
-            />
-            <div className="properties__content">
-                <div className="properties__info">
-                    <h1 className="properties__title">{title}</h1>
-                    <h2 className="properties__subtitle">{location}</h2>
-                    <div className="properties__tags">
-                        {tags.map((tags, index) => (
-                            <Tag key={index} text={tags} />
-                        ))}
+        <main>
+            <div className="properties">
+                <Carousel 
+                    pictures={pictures}
+                />
+                <div className="properties__content">
+                    <div className="properties__info">
+                        <h1 className="properties__title">{title}</h1>
+                        <h2 className="properties__subtitle">{location}</h2>
+                        <div className="properties__tags">
+                            {tags.map((tags, index) => (
+                                <Tag key={index} text={tags} />
+                            ))}
+                        </div>
+                    </div>
+                    <div className="properties__host">
+                        <div className="properties__host__info">
+                            <p className="properties__host__name">{name}</p>
+                            <img src={picture} alt="host profile" className="properties__host__picture"/>
+                        </div>
+                        <div className="properties__host__rating">
+                            <Rating
+                                numberOfStars={rating}/>
+                        </div>
                     </div>
                 </div>
-                <div className="properties__host">
-                    <div className="properties__host__info">
-                        <p className="properties__host__name">{name}</p>
-                        <img src={picture} alt="host profile" className="properties__host__picture"/>
+                <div className="collapsibles">
+                    <div className="collapsible">
+                        <Collapsible className="collapsible__high"
+                            title="Description"
+                            content={description}/>
                     </div>
-                    <div className="properties__host__rating">
-                        <Rating
-                            numberOfStars={rating}/>
+                    <div className="collapsible">
+                        <Collapsible className="collapsible__high"
+                            title="Équipements"
+                            content={equipments.map((equipment, index) => (
+                                <div key={index}>{equipment}</div>
+                            ))}
+                        />
                     </div>
-                </div>
-            </div>
-            <div className="collapsibles">
-                <div className="collapsible">
-                    <Collapsible className="collapsible__high"
-                        title="Description"
-                        content={description}/>
-                </div>
-                <div className="collapsible">
-                    <Collapsible className="collapsible__high"
-                        title="Équipements"
-                        content={equipments.map((equipment, index) => (
-                            <div key={index}>{equipment}</div>
-                        ))}
-                    />
                 </div>
             </div>
         </main>

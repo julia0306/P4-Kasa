@@ -5,8 +5,8 @@ function Rating(props){
             <i className= {` ${numberOfStars > 0 ? 'fa-solid fa-star active' : 'fa-solid fa-star inactive'}`}></i>
             <i className={` ${numberOfStars > 1 ? 'fa-solid fa-star active' : 'fa-solid fa-star inactive'}`}></i>
             <i className={` ${numberOfStars > 2 ? 'fa-solid fa-star active' : 'fa-solid fa-star inactive'}`}></i>
-            <i className={` ${numberOfStars > 2 ? 'fa-solid fa-star active' : 'fa-solid fa-star inactive'}`}></i>
             <i className={` ${numberOfStars > 3 ? 'fa-solid fa-star active' : 'fa-solid fa-star inactive'}`}></i>
+            <i className={` ${numberOfStars > 4 ? 'fa-solid fa-star active' : 'fa-solid fa-star inactive'}`}></i>
         </div>
     )
 }

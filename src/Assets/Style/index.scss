@@ -100,6 +100,10 @@ $light-grey:#F6F6F6;
 .active{
   color: $salmon-pink;}
 
+.inactive{
+  color: #E3E3E3
+}
+
 body { 
   position: relative;
   font-family: "Montserrat", sans-serif;
@@ -745,9 +749,7 @@ margin: 16px 0;
     // Error
 
 .error{
-  margin: 3vh auto 5vh auto;;
-  min-height: 65vh;
-  padding-bottom: 5vh;
+  margin: 3vh auto 5vh auto;
   text-align: center;
   display: flex;
   flex-direction: column;

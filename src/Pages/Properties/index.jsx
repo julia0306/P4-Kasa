@@ -11,9 +11,9 @@ function Properties(){
     const {id} = useParams();
     const selectedProperty = allProperties.find(property => property.id === id);
 
-    // Réécrire ça avace useNavigate ()
     if (!selectedProperty) {
         return <Error/>
+        
     }
     const {title} = selectedProperty || {}
     const {location} = selectedProperty || {}

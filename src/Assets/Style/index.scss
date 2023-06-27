@@ -1,12 +1,12 @@
 // COLORS NEEDED FOR THE PROJECT
-$salmon-pink:#FF6060;
-$light-grey:#F6F6F6;
+$salmon-pink: #ff6060;
+$light-grey: #f6f6f6;
 
 // CSS ANIMATIONS AND TRANSITIONS
 
-// Collapse and expand for all the collapsibles 
+// Collapse and expand for all the collapsibles
 
-@keyframes fold-up{
+@keyframes fold-up {
   0% {
     max-height: 250px;
   }
@@ -24,12 +24,12 @@ $light-grey:#F6F6F6;
   }
 }
 
-// Rotate buttons on collapsibles : 
-.rotate-left {
+// Rotate buttons on collapsibles :
+.rotate-down {
   transform: rotate(-0.5turn);
   transition: transform 0.3s ease-in-out;
 }
-.rotate-right {
+.rotate-up {
   transform: rotate(0turn);
   transition: transform 0.5s ease-in-out;
 }
@@ -41,119 +41,111 @@ $light-grey:#F6F6F6;
   flex-direction: column;
 }
 
-@mixin flex-column-center{
+@mixin flex-column-center {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-@mixin flex-row-center{
+@mixin flex-row-center {
   display: flex;
   align-items: center;
 }
 
-@mixin pinkBG_whiteFont{
+@mixin pinkBG_whiteFont {
   background-color: $salmon-pink;
-  color: white
+  color: white;
 }
 
-@mixin border-radius10{
+@mixin border-radius10 {
   border-radius: 10px;
 }
 
-@mixin card-properties1{
+@mixin card-properties1 {
   height: calc(120px + 11vw);
-  width :calc(120px + 11vw);
+  width: calc(120px + 11vw);
   border-radius: 10px;
 }
 
-@mixin card-properties4{
+@mixin card-properties4 {
   height: calc(110px + 17vw);
-  width :calc(110px + 17vw);
+  width: calc(110px + 17vw);
   justify-content: center;
   border-radius: 10px;
 }
 
-@mixin card-properties2{
+@mixin card-properties2 {
   height: calc(110px + 9vw);
-  width :calc(110px + 9vw);
+  width: calc(110px + 9vw);
   border-radius: 10px;
 }
 
-@mixin card-properties3{
+@mixin card-properties3 {
   height: calc(110px + 18vw);
-  width :calc(110px + 18vw);
+  width: calc(110px + 18vw);
   border-radius: 10px;
 }
 
-@mixin card-properties5{
+@mixin card-properties5 {
   height: calc(110px + 15vw);
-  width :calc(110px + 15vw);
+  width: calc(110px + 15vw);
   border-radius: 10px;
 }
-
 
 // MAIN SETTINGS
-*{
-  text-decoration: none;}
-  
-.active{
-  color: $salmon-pink;}
-
-.inactive{
-  color: #E3E3E3
+* {
+  text-decoration: none;
 }
 
-body { 
+body {
   position: relative;
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
   font-weight: 500;
-  height: fit-content;
-  padding: 32px 48px 0px 48px;
+  max-height: 100%;
+  padding: 32px 48px 0 48px;
   color: $salmon-pink;
   overflow-x: hidden;
   margin: 0;
-  @media all and (max-width: 920px){
-    padding: 32px 0 0 0;
+  @media all and (max-width: 920px) {
+    padding: 16px 0 0 0;
   }
-
 }
 
-  @media all and (min-width: 1300px){
-    header, main {
-      width: 1200px;
-      padding: 0 10%;
-    };
+@media all and (min-width: 1300px) {
+  header,
+  main {
+    width: 1200px;
+    padding: 0 10%;
   }
+}
 
-  @media all and (min-width: 1024px){
-    header, main {
-      width: 1024px;
-      padding: 0 10%;
-    };
+@media all and (min-width: 1024px) {
+  header,
+  main {
+    width: 1024px;
+    padding: 0 10%;
   }
+}
 
-main{
+main {
   box-sizing: border-box;
   width: 100%;
   padding: 0;
-  padding-bottom: 220px;
+  padding-bottom: 200px;
   min-width: 275px;
   align-self: center;
 
-  @media all and (max-width: 920px){
-    padding-bottom: 230px;
+  @media all and (max-width: 920px) {
+    padding-bottom: 200px;
   }
 }
 
-
 // COMPONENTS
 
+// Banner
 
-    // Banner
-
-.banner{
+.banner {
   @include border-radius10();
   width: 100%;
   margin: 5vh auto;
@@ -163,36 +155,34 @@ main{
   @media all and (max-width: 920px) {
     width: 90vw;
     height: 210px;
-    margin: 4vh auto;    
+    margin: 4vh auto;
   }
   @media all and (max-width: 600px) {
     height: 160px;
     margin: 3vh auto;
   }
-
   @media all and (max-width: 375px) {
-    width:90vw;
+    width: 90vw;
     margin: 2vh auto;
   }
 
-  &__image{
+  &__image {
     @include border-radius10();
     z-index: 10;
     object-fit: cover;
     width: 100%;
     height: 100%;
-    mix-blend-mode:color-dodge;
-    opacity: 1.7; 
+    mix-blend-mode: color-dodge;
+    opacity: 1.7;
     margin: 0 auto;
   }
 
-  &__title{
+  &__title {
     z-index: 100;
     position: relative;
     font-size: 3.2rem;
-    font-weight:500;
+    font-weight: 500;
     color: white;
-
     @media all and (min-width: 1301px) {
       bottom: 170px;
       font-size: 3.2rem;
@@ -201,7 +191,7 @@ main{
     @media all and (max-width: 1301px) {
       bottom: 160px;
       font-size: 2.7rem;
-      text-align: center
+      text-align: center;
     }
     @media all and (max-width: 920px) {
       font-size: 2.4rem;
@@ -224,790 +214,774 @@ main{
     }
   }
 }
-        
 
 // Cards
 
-.cards{
-  &__individual{
-    @include card-properties1();
+.cards {
+  @include card-properties1();
 
-    @media all and (min-width: 1300px) {
-      @include card-properties2(); 
-    }
-
-    @media all and (min-width: 1200px) and (max-width: 1300px) {
-      @include card-properties3(); 
-    }
-    
-    @media all and (min-width: 1100px) and (max-width: 1200px) {
-      @include card-properties4(); 
-    }
-
-    @media all and (min-width: 920px) and (max-width: 1100px) {
-      @include card-properties5(); 
-    }
-
-    @media all and (max-width: 920px) {
-      width: 90vw;
-      height: 290px;
-      margin: 0;     
-    }
-    @media all and (max-width: 375px) {
-      width: 90vw;
-      height: 250px; 
-      margin: 0;
-      min-width: 295px;     
-    }
+  @media all and (min-width: 1300px) {
+    @include card-properties2();
   }
 
-  &__cover{
+  @media all and (min-width: 1200px) and (max-width: 1300px) {
+    @include card-properties3();
+  }
+
+  @media all and (min-width: 1100px) and (max-width: 1200px) {
+    @include card-properties4();
+  }
+
+  @media all and (min-width: 920px) and (max-width: 1100px) {
+    @include card-properties5();
+  }
+
+  @media all and (max-width: 920px) {
+    width: 90vw;
+    height: 290px;
+    margin: 0;
+  }
+  @media all and (max-width: 375px) {
+    width: 90vw;
+    height: 250px;
+    margin: 0;
+    min-width: 295px;
+  }
+  &__cover {
     @include card-properties1();
     object-fit: cover;
 
     @media all and (min-width: 1300px) {
-      @include card-properties2(); 
+      @include card-properties2();
     }
     @media all and (min-width: 1200px) and (max-width: 1300px) {
-      @include card-properties3(); 
+      @include card-properties3();
     }
-    
+
     @media all and (min-width: 1100px) and (max-width: 1200px) {
-      @include card-properties4(); 
+      @include card-properties4();
     }
 
     @media all and (min-width: 920px) and (max-width: 1100px) {
-      @include card-properties5(); 
+      @include card-properties5();
     }
 
     @media all and (max-width: 920px) {
-      width:100%;
+      width: 100%;
       height: 290px;
     }
     @media all and (max-width: 375px) {
       width: 90vw;
       height: 250px;
-      margin: 0;   
-      min-width: 295px;  
+      margin: 0;
+      min-width: 295px;
     }
   }
 
-  &__gradient{
+  &__gradient {
     position: relative;
-  
-    &::after{
-      content:'';
+
+    &::after {
+      content: "";
       @include card-properties1();
       position: absolute;
-      top:0;
-      left:0;
-      background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4));
+      top: 0;
+      left: 0;
+      background-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0.4)
+      );
 
       @media all and (min-width: 1300px) {
-        @include card-properties2(); 
+        @include card-properties2();
       }
-      
+
       @media all and (min-width: 1200px) and (max-width: 1300px) {
-        @include card-properties3(); 
+        @include card-properties3();
       }
-      
+
       @media all and (min-width: 1100px) and (max-width: 1200px) {
-        @include card-properties4(); 
+        @include card-properties4();
       }
 
       @media all and (min-width: 920px) and (max-width: 1100px) {
-        @include card-properties5(); 
+        @include card-properties5();
       }
 
       @media all and (max-width: 920px) {
-        width:100%;
+        width: 100%;
         height: 290px;
       }
       @media all and (max-width: 375px) {
         width: 90vw;
         height: 250px;
         margin: 0;
-        min-width: 295px;     
+        min-width: 295px;
       }
     }
   }
 
-  &__title{
+  &__title {
     position: relative;
-    bottom:20%;
+    bottom: 20%;
     left: 10px;
-    width:92%;
+    width: 92%;
     font-size: 1rem;
     color: #fff;
 
-    @media all and (min-width: 1024px){
-      font-size: 0.9rem;
-      bottom:20%
+    @media all and (min-width: 1024px) {
+      font-size: 1.1rem;
+      bottom: 20%;
     }
 
-    @media all and (max-width: 1024px){
-      font-size: 0.8rem;
-      bottom:20%
+    @media all and (max-width: 1024px) {
+      font-size: 1rem;
+      bottom: 20%;
     }
 
-    @media all and (max-width: 920px){
+    @media all and (max-width: 920px) {
       font-size: 1.5rem;
-      bottom:25%
+      bottom: 25%;
     }
 
-    @media all and (max-width: 600px){
+    @media all and (max-width: 600px) {
       font-size: 1.2rem;
       bottom: 25%;
     }
   }
 }
 
-    // Carousel
+// Carousel
 
-.carousel{
+.carousel {
   margin: 5vh auto 2vh auto;
   @media all and (max-width: 920px) {
-  width: 100%;      
-  }
-    
-  &__image{
     width: 100%;
-    height:415px;
+  }
+
+  &__image {
+    width: 100%;
+    height: 415px;
     align-self: center;
     border-radius: 10px;
     object-fit: cover;
 
-    @media all and (min-width: 1300px){
+    @media all and (min-width: 1300px) {
       height: 470px;
     }
 
-    @media all and (max-width: 600px){
+    @media all and (max-width: 600px) {
       height: 300px;
 
-    @media all and (max-width: 375px){
-      height: 250px;
-    }
+      @media all and (max-width: 375px) {
+        height: 250px;
+      }
     }
   }
-  
-  &__arrows{
-      display: flex;
-      justify-content: space-between;
-      width: 96%;
-      margin: 0 auto;
-      position: relative;
-      top: -240px;
-      height: 0;
-      @media all and (max-width: 600px){
-        top: -180px
-      }
-      @media all and (max-width: 375px){
-        top: -155px
-      }
 
+  &__arrows {
+    display: flex;
+    justify-content: space-between;
+    width: 96%;
+    margin: 0 auto;
+    position: relative;
+    top: -240px;
+    height: 0;
+    @media all and (max-width: 600px) {
+      top: -180px;
     }
-  &__navigation{
+    @media all and (max-width: 375px) {
+      top: -155px;
+    }
+  }
+  &__navigation {
     color: white;
     text-align: center;
     position: relative;
     top: -50px;
     height: 0;
-
   }
-  
-  
-  button{
-    border:none;
+
+  button {
+    border: none;
     background: none;
     color: white;
     font-size: 3.75rem;
 
-    @media all and (max-width:600px){
+    @media all and (max-width: 600px) {
       font-size: 3rem;
     }
-    
-    @media all and (max-width:375px){
+
+    @media all and (max-width: 375px) {
       font-size: 2.7rem;
     }
   }
-  
-  button :hover{
-    cursor: pointer
-  }
-}
 
-    // Collapsible 
-
-
-.collapsibles{
-display: flex;
-justify-content: space-between;
-gap: 16px;
-margin: 16px 0 ;
-
-@media all and (max-width: 920px){
-  flex-direction: column;
-  width: 100%;
-}
-
-}
-
-.collapsible{
-width: 100%;
-margin: 16px 0;    
-  &__heading{
-    @include flex-row-center();
-    @include pinkBG_whiteFont();
-    justify-content: space-between;
-    z-index: 100;
-    height:52px;
-    padding: 0 3%;
-    width: 94%;
-    border-radius: 10px;
-
-    @media all and (max-width: 920px){
-      height: 45px;
-    }
-
-    @media all and (max-width: 600px){
-      height: 40px;
-    }
-  }
-
-  &__icon{
-    background: none;
-    color: inherit;
-    border: none;
-    padding: 0;
-    margin:0;
-    font: inherit;
+  button :hover {
     cursor: pointer;
-    outline: inherit;
-    font-size: 1.8rem;
-
-    @media all and (max-width: 600px){
-      position: relative;
-      top: 2px;
-      font-size: 1.3rem;
-    }
   }
+}
 
-  &__content{
-    position: relative;
-    top:-10px;
-    background-color: $light-grey;
-    margin: 0;
-    font-size: 1rem;
-    @include flex-column;
-    justify-content: center;
-  }
+// Collapsible
 
-  &__full {
-    @include flex-column();
-  }
+.collapsibles {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 16px 0;
 
-  &__components{
-    @include flex-column();
+  @media all and (max-width: 920px) {
+    flex-direction: column;
     width: 100%;
   }
 
-  &__size{
-    @include flex-column();
-    height: fit-content;
-    padding: 30px 16px 16px 16px;
-    overflow: hidden;
-    justify-content: center;
-  }
-  &__title{
-    font-size: 1.3rem;
-    font-weight: 500;
-  
-    @media all and (max-width: 920px){
-      font-weight: 400;
+  .collapsibles__individual {
+    width: 100%;
+    margin: 16px 0;
+        &__container {
+      @include flex-column();
     }
-    @media all and (max-width: 600px){
-      font-weight: 400;
-      font-size: 1.1rem;
-    }
-  }
-
-  .not-displayed {
-    display: none;
-    max-height: 0;
-    padding: 0;
-    overflow: hidden;
-    animation: collapse 0.5s ease-out;
     
-  }
+    &__titleZone {
+      @include flex-row-center();
+      @include pinkBG_whiteFont();
+      justify-content: space-between;
+      z-index: 100;
+      height: 52px;
+      padding: 0 3%;
+      width: 94%;
+      border-radius: 10px;
 
-  .collapse{
-    max-height: 0;
-    overflow: hidden;
-    animation: fold-up 0.5s ease-out;
-  }
-
-  .unfold {
-    max-height: 280px;
-    overflow: hidden;
-    transition: max-height 0.8s ease-out;
-    animation: expand 0.8s ease-out ;
-  }
-
-}
-
-
-    // Footer
-
-    .footer{
-      @include flex-column-center();
-      position: absolute;
-      bottom: 0;
-      left:0;
-      justify-content: space-around;
-      width: 100vw;
-      min-width: 293px;
-      height:120px;
-      background-color: black;
-      color: white;
-      padding: 5vh 0 3vh 0;
-    
-      @media all and (max-width:920px){
-        justify-content: center;
-        height: 160px;
+      @media all and (max-width: 920px) {
+        height: 45px;
       }
-    
-      &__logo{
-        margin-bottom: 2vh;
-        width: 122px;
+
+      @media all and (max-width: 600px) {
         height: 40px;
       }
-    
-      &__text{
-        font-size: 1.125rem;
-    
-        @media all and (max-width:920px){
-          font-size: 1rem;
-          width: 40%;
-          text-align: center;
-        }
-        
-        @media all and (max-width:375px){
-            font-size: 0.75rem
-        }
+    }
+    &__title {
+      font-size: 1.3rem;
+      font-weight: 500;
+      @media all and (max-width: 920px) {
+        font-weight: 400;
+      }
+      @media all and (max-width: 600px) {
+        font-weight: 400;
+        font-size: 1.1rem;
       }
     }
-    
-    
-        //Gallery
-    .gallery{
-      @include flex-row-center();
-      position: relative;
-      flex-wrap: wrap;
-      gap: 3vw;
-      justify-content:center;
-      border-radius: 20px;
-      background-color: #F6F6F6;
-      width: 100%;
-      padding-top: 5vh;
-      padding-bottom: 5vh;
-      margin: 0 auto;
-      min-width: 295px;
-    
-      a{
-        @media all and (max-width: 920px){
-        display:flex;
-        justify-content: center;}
-      }
-    
-      @media all and (min-width: 1300px){
-        gap: 2.5vw;
-      }
-    
-      @media all and (max-width: 1030px){
-        gap: 3vw;
-      }
-    
-      @media all and (max-width: 920px){
-        @include flex-column();
-        background-color: white;
-        justify-content: flex-start;
-        padding-top: 2vh;
-      }
-    
-      
-      @media all and (max-width: 600px){
-        @include flex-column();
-        gap: 4vh;
-        background-color: white;
-        margin: 0;
-      }
-    }
-    
-    
-    // Header
 
-.header{
+    &__icon {
+      background: none;
+      color: inherit;
+      border: none;
+      padding: 0;
+      margin: 0;
+      font: inherit;
+      cursor: pointer;
+      outline: inherit;
+      font-size: 1.8rem;
+      @media all and (max-width: 600px) {
+        position: relative;
+        top: 2px;
+        font-size: 1.3rem;
+      }
+    }
+
+    &__content {
+        &--not-displayed{
+        display: none;
+        animation: collapse 0.5s ease-out;
+        }
+        &--collapsed {
+          max-height: 0;
+          overflow: hidden;
+          animation: fold-up 0.5s ease-out;
+        }
+        &--expanded{
+          @include flex-column;
+          justify-content: center;
+          position: relative;
+          top: -10px;
+          background-color: $light-grey;
+          margin: 0;
+          font-size: 1rem;
+          max-height: 280px;
+          transition: max-height 0.8s ease-out;
+          animation: expand 0.8s ease-out;
+        }
+    }
+
+    &__sizer {
+      @include flex-column();
+      height: fit-content;
+      padding: 30px 16px 16px 16px;
+      overflow: hidden;
+      justify-content: center;
+    }
+
+
+  }
+}
+
+// Footer
+
+.footer {
+  @include flex-column-center();
+  position: absolute;
+  justify-content: space-around;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  min-width: 293px;
+  height: 180px;
+  background-color: black;
+  color: white;
+  padding: 5vh auto 3vh auto;
+
+  @media all and (max-width: 920px) {
+    justify-content: center;
+  }
+
+  &__logo {
+    margin-bottom: 2vh;
+    width: 122px;
+    height: 40px;
+  }
+
+  &__text {
+    font-size: 1.125rem;
+
+    @media all and (max-width: 920px) {
+      font-size: 1rem;
+      width: 40%;
+      text-align: center;
+    }
+
+    @media all and (max-width: 375px) {
+      font-size: 0.75rem;
+    }
+  }
+}
+
+//Gallery
+.gallery {
+  @include flex-row-center();
+  position: relative;
+  flex-wrap: wrap;
+  gap: 3vw;
+  justify-content: center;
+  border-radius: 20px;
+  background-color: #f6f6f6;
+  width: 100%;
+  padding-top: 5vh;
+  padding-bottom: 5vh;
+  margin: 0 auto;
+  min-width: 295px;
+
+  a {
+    @media all and (max-width: 920px) {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  @media all and (min-width: 1300px) {
+    gap: 2.5vw;
+  }
+
+  @media all and (max-width: 1030px) {
+    gap: 3vw;
+  }
+
+  @media all and (max-width: 920px) {
+    @include flex-column();
+    background-color: white;
+    justify-content: flex-start;
+    padding-top: 2vh;
+  }
+
+  @media all and (max-width: 600px) {
+    @include flex-column();
+    gap: 4vh;
+    background-color: white;
+    margin: 0;
+  }
+}
+
+// Header
+
+.header {
   @include flex-row-center();
   justify-content: space-between;
   width: 100%;
   margin: 0 auto;
   min-width: 275px;
-  @media all and (max-width: 920px){
+  @media all and (max-width: 920px) {
     width: 90vw;
     min-width: 295px;
   }
-  
-  .kasa-logo{
-      width: 211px;
-      height: 68px;
 
-      @media all and (max-width: 920px){
-          width: 146px;
-          height: 47px;
-        }
-      }
+  .kasa-logo {
+    width: 211px;
+    height: 68px;
 
-  .navbar{
+    @media all and (max-width: 920px) {
+      width: 146px;
+      height: 47px;
+    }
+  }
+
+  .navbar {
     display: flex;
     gap: 3.5vw;
-  }
+    
+    a{
+      color: $salmon-pink;
+      font-size: 1.5rem;
+  
+      @media all and (max-width: 600px) {
+        font-size: 1rem;
+      }
+      @media all and (max-width: 375px) {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+      }
+    };
 
-  .navbar__links, .navbar__links__active {
-    color:$salmon-pink;
-    font-size: 1.5rem;
-
-    @media all and (max-width: 600px){
-      font-size: 1rem
+    &__links__active {
+      text-decoration: underline;
     }
-    @media all and (max-width: 375px){
-      font-size: 0.75rem;
-      text-transform:uppercase;
-    }
   }
 
-  .navbar__links__active{
-    text-decoration: underline;
-  }
 
 }
 
+// Rating
 
-    // Rating
+.rating {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 1.5rem;
+  @media all and (min-width: 920px) {
+    width: 100%;
+    justify-content: space-between;
+  }
 
-    .rating{
-      font-size: 1.5rem;
-      display: flex;
-      justify-content: flex-end;
-      @media all and (min-width: 920px){
-        width: 100%;
-        justify-content: space-between;
-      }
-    
-      @media all and (max-width:600px){
-        font-size: 1.125rem;
-        justify-content: flex-start;
-      }
-    }
+  @media all and (max-width: 600px) {
+    font-size: 1.125rem;
+    justify-content: flex-start;
+  }
+  .active {
+    color: $salmon-pink;
+  }
+  
+  .inactive {
+    color: #e3e3e3;
+  }
+}
 
-    
-    // Tag
+// Tag
 
-.tag{
+.tag {
   @include pinkBG_whiteFont();
-  display: flex; 
+  display: flex;
   flex-wrap: wrap;
   align-items: center;
-  border-radius:10px;
-  width:fit-content;
+  border-radius: 10px;
+  width: fit-content;
   font-size: 0.9rem;
   text-align: center;
   height: 25px;
   padding: 2px 8px;
   margin: 3vh 0 0 0;
 
-  @media all and (max-width: 600px){
+  @media all and (max-width: 600px) {
     font-size: 0.7rem;
-    height:12px;
+    height: 12px;
     padding: 4px 6px 6px 6px;
     border-radius: 6px;
-    margin:0;
+    margin: 0;
   }
 
-  @media all and (max-width: 375px){
-      font-size: 0.6rem;
-      height:8px;
-      padding: 4px 6px 6px 6px;
-      border-radius: 6px;
-    }
+  @media all and (max-width: 375px) {
+    font-size: 0.6rem;
+    height: 8px;
+    padding: 4px 6px 6px 6px;
+    border-radius: 6px;
+  }
 }
-
-
-
 
 // PAGES
 
-    // Error
+// Error
+.error {
+  padding-bottom: 220px;
 
-.error{
-  margin: 3vh auto 5vh auto;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-
-  .error__title{
-    font-size: 16rem;
-    font-weight: 700;
-    margin: 0 auto;
+  &__div {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 32px auto;
     text-align: center;
-
-    @media all and (max-width: 920px){
-      font-size: 11rem;
-    }
-    @media all and (max-width: 600px){
-      font-size: 8rem;
-    }
-    @media all and (max-width: 375px){
-      font-size: 5rem;
-    }
-  }
-
-  &__info{
-    font-size: 2rem;
-    font-weight: 500;
-    margin:0 auto;
-    
-    @media all and (max-width : 920px){
-      font-size: 1.6rem
+    height: 70vh;
+    min-height:300px;
+    h1 {
+      margin: auto;
+      font-size: 16rem;
+      font-weight: 700;
+      text-align: center;
+      @media all and (min-width: 1024px){
+        font-size: 20rem;
       }
-    @media all and (max-width : 375px){
-      font-size: 1.3rem
+      @media all and (max-width: 600px) {
+        font-size: 11rem;
+        margin:auto;
       }
-  }
+      @media all and (max-width: 375px) {
+        font-size: 8rem;
+      }
+    }
 
-  &__link{
-    text-decoration: none;
-    color:#FF6060;
-    font-size: 1rem;
-    font-weight: 500;
-    padding: 5vh 0 1vh 0;
-    margin: 0 auto 5vh auto;
-    border-bottom: 2px solid $salmon-pink;
+    p {
+      font-size: 2rem;
+      font-weight: 500;
+      margin: 0 auto 32px auto;
 
-    @media all and (max-width : 375px){
-      padding-bottom:0.3vh
+      @media all and (max-width: 920px) {
+        font-size: 1.6rem;
+      }
+      @media all and (max-width: 600px) {
+        margin: 16px auto 48px auto;
+      }
+      @media all and (max-width: 375px) {
+        font-size: 1.3rem;
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: #ff6060;
+      font-size: 1rem;
+      font-weight: 500;
+      margin: 0 auto;
+      border-bottom: 2px solid $salmon-pink;
+
+      @media all and (max-width: 375px) {
+        font-size: 0.7rem;
+      }
     }
   }
 }
 
+// About
 
-    // About
-
-    
-.about{
-  &__collapsibles{
+.about {
+  .collapsibles {
     @include flex-column();
     justify-content: space-between;
     width: 100%;
+    gap: 0;
     margin: 0 auto 3vh;
     padding: 0;
 
-    @media all and (min-width: 920px){
+    @media all and (min-width: 920px) {
       padding-top: 3vh;
       width: 80%;
     }
 
-    @media all and (max-width: 920px){
+    @media all and (max-width: 920px) {
       width: 90vw;
     }
   }
-  .banner{    
+  .banner {
     margin: 3vh auto 0 auto;
     @media all and (max-width: 920px) {
-    height: 300px;
-    margin: 3vh auto;
+      height: 300px;
+      margin: 3vh auto;
     }
-  
+
     @media all and (max-width: 375px) {
       height: 250px;
       min-width: 295px;
-      }
+    }
   }
 }
 
+//Properties
 
-    //Properties
-
-.properties{
+.properties {
   width: 100%;
   padding-bottom: 0;
   margin: 0 auto;
-  @media all and (max-width: 920px){
+  @media all and (max-width: 920px) {
     width: 90vw;
   }
 
-  &__content{
+  &__content {
     display: flex;
     justify-content: space-between;
-    @media all and (max-width: 920px){
+    @media all and (max-width: 920px) {
       margin-top: 1vh;
     }
-    @media all and (max-width: 600px){
+    @media all and (max-width: 600px) {
       flex-direction: column;
     }
   }
-  &__title{
+  &__title {
     font-size: 2.1rem;
     font-weight: 500;
-    margin:0;
+    margin: 0;
 
-    @media all and (max-width: 1051px){
-      font-size:1.8rem;
+    @media all and (max-width: 1051px) {
+      font-size: 1.8rem;
     }
-    @media all and (max-width: 920px){
-      font-size:1.5rem;
+    @media all and (max-width: 920px) {
+      font-size: 1.5rem;
     }
-    @media all and (max-width: 600px){
-      font-size:1.35rem;
+    @media all and (max-width: 600px) {
+      font-size: 1.35rem;
     }
-    @media all and (max-width: 375px){
-      font-size:1.2rem;
+    @media all and (max-width: 375px) {
+      font-size: 1.2rem;
     }
   }
 
-  &__subtitle{
+  &__subtitle {
     font-size: 1.5rem;
     font-weight: 500;
     margin: 0;
-    @media all and (max-width: 920px){
-      font-size:1.3rem;
+    @media all and (max-width: 920px) {
+      font-size: 1.3rem;
     }
-    @media all and (max-width: 600px){
-      font-size:1.15rem;
+    @media all and (max-width: 600px) {
+      font-size: 1.15rem;
     }
-    @media all and (max-width: 375px){
-      font-size:1rem;
+    @media all and (max-width: 375px) {
+      font-size: 1rem;
     }
   }
 
-  &__tags{
-    display: flex; 
+  &__tags {
+    display: flex;
     justify-content: flex-start;
     gap: 1.5vw;
   }
 
-  &__info{
+  &__info {
     @include flex-column();
     justify-content: space-between;
     gap: 8px;
-    @media all and (max-width: 920px){
+    @media all and (max-width: 920px) {
       justify-content: flex-start;
       gap: 0;
     }
-    @media all and (max-width: 600px){
-      gap: 1vh
+    @media all and (max-width: 600px) {
+      gap: 1vh;
     }
   }
-  &__host{
+  &__host {
     @include flex-column();
     justify-content: space-around;
 
-    @media all and (max-width: 920px){
+    @media all and (max-width: 920px) {
       gap: 1vh;
       align-items: flex-end;
     }
-    @media all and (max-width: 600px){
+    @media all and (max-width: 600px) {
       flex-direction: row-reverse;
       align-items: center;
       justify-content: space-between;
     }
-
-  }
-  &__host__picture {
-    border-radius:50%;
-    margin: 0 0 0 1.5vw;
-    padding-top:0;
-    height: 64px;
-    width: 64px;
-    object-fit: cover;
-    @media all and (max-width: 600px){
-      width: 50px;
-      height: 50px;
-    }
-  }
-  
-  &__host__info{
-    @include flex-row-center();
-    justify-content: flex-end;
-    margin: 0;
-    padding: 0;
-    width: 180px;
-    @media all and (max-width: 600px){
-      justify-content: right;
-      width:40%;
-      gap: 2vw;
-    }
-  }
-  
-  &__host__name{
-    display: flex;
-    flex-wrap: wrap;
-    font-size: 1.2rem;
-    text-align: right;
-    line-height: 1.5;
-    height: 60px;
-    padding: 0;
-    margin:0;
-
-    @media all and (max-width: 600px){
-      display: flex; 
-      align-items: center;
-      width: 55%;
-    }
-    @media all and (max-width: 375px){
-      font-size: 1rem;
-      width: 60%;
-    }
-  }
-
-  &__host__rating{
-    @media all and (min-width: 920px){
-      width: 100%;
-      padding-top: 16px;
+    &__picture {
+      border-radius: 50%;
+      margin: 0 0 0 1.5vw;
+      padding-top: 0;
+      height: 64px;
+      width: 64px;
+      object-fit: cover;
+      @media all and (max-width: 600px) {
+        width: 50px;
+        height: 50px;
       }
-    @media all and (max-width: 920px){
-    width: 130px;
-    padding-top: 16px;
     }
-    @media all and (max-width: 600px){
-        padding-top:8px;
+  
+    &__info {
+      @include flex-row-center();
+      justify-content: flex-end;
+      margin: 0;
+      padding: 0;
+      width: 180px;
+      @media all and (max-width: 600px) {
+        justify-content: right;
+        width: 40%;
+        gap: 2vw;
+      }
+    }
+  
+    &__name {
+      display: flex;
+      flex-wrap: wrap;
+      font-size: 1.2rem;
+      text-align: right;
+      line-height: 1.5;
+      height: 60px;
+      padding: 0;
+      margin: 0;
+      @media all and (max-width: 600px) {
+        display: flex;
+        align-items: center;
+        width: 55%;
+      }
+      @media all and (max-width: 375px) {
+        font-size: 1rem;
+        width: 60%;
+      }
+    }
+  
+    &__rating {
+      @media all and (min-width: 920px) {
+        width: 100%;
+        padding-top: 16px;
+      }
+      @media all and (max-width: 920px) {
+        width: 130px;
+        padding-top: 16px;
+      }
+      @media all and (max-width: 600px) {
+        padding-top: 8px;
+      }
+  }
+
+  }
+
+  .collapsibles {
+    //Fixe la gap des collapsibles des propriétés en 920 pix et plus que 920px
+    @media all and (min-width: 920px) {
+      gap: 6vw;
+    }
+    @media all and (max-width: 920px) {
+      gap: 0;
+      margin: 0;
     }
   }
 
-}
-
-.properties .collapsible__size{
-  @include flex-column();
-  justify-content: space-around;
-  @media all and (min-width: 920px){
-    min-height: 150px
-    
+  .collapsible__size {
+    //définit la hauteur et la disposition du collapsible des propriétés
+    @include flex-column();
+    justify-content: space-around;
+    @media all and (min-width: 920px) {
+      min-height: 150px;
+    }
   }
-}
 
-.properties .collapsibles{
-  @media all and (min-width: 920px){
-    gap: 6vw
+  .collapsible__heading {
+    //fixe la hauteur des headings du collapsible des propriétés en 375px
+    @media all and (max-width: 375px) {
+      height: 35px;
+    }
   }
-  @media all and (max-width: 920px){
-    gap: 0;
-    margin: 0;
-
-  }
-}
-
-.properties .collapsible__heading{
-  @media all and (max-width: 375px){
-    height: 35px;
-  }  
 }

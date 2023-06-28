@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 
-// Je passe mes props en paramètre afin de récupérer les informations de manière dynamique depuis les pages "Home" et "About"
 function Banner({image, title}) {
     return (
         <div className="banner">

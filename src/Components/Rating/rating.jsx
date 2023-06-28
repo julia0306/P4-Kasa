@@ -1,5 +1,4 @@
-function Rating(props){
-    const numberOfStars = props.numberOfStars
+function Rating({numberOfStars}){
     return (
         <div className="rating">
             {/* J'attribue une classe différente aux étoiles de notation en fonction de la note attribuée.  */}

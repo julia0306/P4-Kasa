@@ -32,7 +32,7 @@ function Header() {
                 <NavLink
                     to="/about" 
                     className={({isActive}) => isActive ? 'navbar__links navbar__links__active' : 'navbar__links'}>
-                        A propos
+                        A Propos
                 </NavLink>
             </div>
         </nav>

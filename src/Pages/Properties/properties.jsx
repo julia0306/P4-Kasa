@@ -1,4 +1,3 @@
-
 import { Navigate } from 'react-router-dom';
 import allProperties from "../../Data/Properties.json";
 import { useParams } from 'react-router-dom'

@@ -1,4 +1,3 @@
-
 import Card from "../Card/card";
 import { Link } from "react-router-dom";
 import allProperties from "../../Data/Properties.json";

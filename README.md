@@ -4,7 +4,7 @@
 ## Description
 
 Dans ce projet, il fallait implémenter le front-end d'une application de location de logements appelée Kasa. Pour y parvenir, l'objectif était de mettre en place des composants avec React et d'implémenter les routes de l'application avec React Router
----
+
 ## Configuration et installation 
 
 ### 1. Cloner le dépôt en local 
